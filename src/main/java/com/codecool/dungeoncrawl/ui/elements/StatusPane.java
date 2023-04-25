@@ -14,7 +14,7 @@ import java.util.List;
 import static java.util.stream.Collectors.joining;
 
 public class StatusPane {
-    public static final int RIGHT_PANEL_WIDTH = 200;
+    public static final int RIGHT_PANEL_WIDTH = 270;
     public static final int RIGHT_PANEL_PADDING = 10;
     private GridPane ui;
     private Label healthTextLabel;

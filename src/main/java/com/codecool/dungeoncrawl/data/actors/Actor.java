@@ -3,6 +3,7 @@ package com.codecool.dungeoncrawl.data.actors;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.Drawable;
+import com.codecool.dungeoncrawl.data.items.Apple;
 import com.codecool.dungeoncrawl.data.items.Item;
 
 import java.util.ArrayList;
@@ -10,8 +11,8 @@ import java.util.List;
 
 public abstract class Actor implements Drawable {
     private Cell cell;
-    private int health = 10;
 
+    private int health;
     private List<Item> items;
 
     public Actor(Cell cell) {
@@ -22,10 +23,13 @@ public abstract class Actor implements Drawable {
 
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
+        System.out.println(cell.getActor().getHealth());
         if (nextCell.getType().equals(CellType.FLOOR) && nextCell.getActor() == null) {
             if (nextCell.getItem() != null) {
-                System.out.println(nextCell.getItem());
                 addItemToInventory(nextCell.getItem());
+                if (nextCell.getItem().getTileName().equals("Red apple")) {
+                    cell.getActor().addHealthPoints(5);
+                }
                 nextCell.setItem(null);
             }
             cell.setActor(null);
@@ -43,9 +47,6 @@ public abstract class Actor implements Drawable {
         return items;
     }
 
-    public int getHealth() {
-        return health;
-    }
 
     public Cell getCell() {
         return cell;
@@ -58,4 +59,10 @@ public abstract class Actor implements Drawable {
     public int getY() {
         return cell.getY();
     }
+
+    public abstract int getHealth();
+
+    public abstract void setHealth(int number);
+
+    public abstract void addHealthPoints(int number);
 }

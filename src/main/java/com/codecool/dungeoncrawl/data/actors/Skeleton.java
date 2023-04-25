@@ -8,6 +8,22 @@ public class Skeleton extends Actor {
     }
 
     @Override
+    public int getHealth() {
+        //...
+        return 0;
+    }
+
+    @Override
+    public void setHealth(int number) {
+        //...
+    }
+
+    @Override
+    public void addHealthPoints(int number) {
+
+    }
+
+    @Override
     public String getTileName() {
         return "skeleton";
     }
