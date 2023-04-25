@@ -1,7 +1,7 @@
 package com.codecool.dungeoncrawl.data;
 
 import com.codecool.dungeoncrawl.data.actors.Player;
-import com.codecool.dungeoncrawl.data.actors.enemies.Ghost;
+import com.codecool.dungeoncrawl.data.actors.enemies.Giant;
 import com.codecool.dungeoncrawl.data.actors.enemies.Skeleton;
 import com.codecool.dungeoncrawl.data.actors.enemies.Wizard;
 
@@ -14,7 +14,7 @@ public class GameMap {
 
     private Skeleton skeleton;
 
-    private Ghost ghost;
+    private Giant giant;
     private Wizard wizard;
 
     public GameMap(int width, int height, CellType defaultCellType) {
@@ -37,8 +37,8 @@ public class GameMap {
     }
     public void setSkeleton(Skeleton skeleton){this.skeleton = skeleton;}
 
-    public void setGhost(Ghost ghost) {
-        this.ghost = ghost;
+    public void setGiant(Giant giant) {
+        this.giant = giant;
     }
 
     public Player getPlayer() {
@@ -46,8 +46,8 @@ public class GameMap {
     }
     public Skeleton getSkeleton(){return skeleton;}
 
-    public Ghost getGhost() {
-        return ghost;
+    public Giant getGiant() {
+        return giant;
     }
 
     public int getWidth() {
