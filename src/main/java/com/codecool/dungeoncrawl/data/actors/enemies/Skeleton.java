@@ -13,6 +13,31 @@ public class Skeleton extends Enemy {
         super(cell);
     }
 
+    @Override
+    public int getHealth() {
+        return 0;
+    }
+
+    @Override
+    public void setHealth(int number) {
+
+    }
+
+    @Override
+    public void addHealthPoints(int number) {
+
+    }
+
+    @Override
+    public int getAttackStrength() {
+        return 0;
+    }
+
+    @Override
+    public void addAttackStrength(int number) {
+
+    }
+
 
     @Override
     public void moveEnemy(GameMap map, int position) {

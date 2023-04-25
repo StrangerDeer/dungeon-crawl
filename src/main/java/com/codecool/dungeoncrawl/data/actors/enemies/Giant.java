@@ -14,6 +14,31 @@ public class Giant extends Enemy {
     }
 
     @Override
+    public int getHealth() {
+        return 0;
+    }
+
+    @Override
+    public void setHealth(int number) {
+
+    }
+
+    @Override
+    public void addHealthPoints(int number) {
+
+    }
+
+    @Override
+    public int getAttackStrength() {
+        return 0;
+    }
+
+    @Override
+    public void addAttackStrength(int number) {
+
+    }
+
+    @Override
     public void moveEnemy(GameMap map, int position) {
         if(!getCell().getNeighbor(0, position + 1).getType().equals(CellType.FLOOR)){
             this.moveUp = false;
