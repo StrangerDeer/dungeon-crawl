@@ -4,7 +4,6 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
-import com.codecool.dungeoncrawl.ui.enemiesmove.SkeletonMove;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
