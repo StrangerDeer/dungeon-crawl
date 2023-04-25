@@ -60,7 +60,7 @@ public class MapLoader {
                             break;
                         case'w':
                             cell.setType(CellType.FLOOR);
-                            new Wizard(cell);
+                            map.setWizard(new Wizard(cell));
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");

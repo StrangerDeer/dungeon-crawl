@@ -6,6 +6,7 @@ import com.codecool.dungeoncrawl.ui.elements.MainStage;
 import com.codecool.dungeoncrawl.ui.enemiesmove.EnemiesMoves;
 import com.codecool.dungeoncrawl.ui.enemiesmove.GiantMove;
 import com.codecool.dungeoncrawl.ui.enemiesmove.SkeletonMove;
+import com.codecool.dungeoncrawl.ui.enemiesmove.WizardMove;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -34,7 +35,7 @@ public class UI {
         this.context = canvas.getGraphicsContext2D();
         this.mainStage = new MainStage(canvas);
         this.keyHandlers = keyHandlers;
-        this.enemiesMoves = List.of(new SkeletonMove(), new GiantMove());
+        this.enemiesMoves = List.of(new SkeletonMove(), new GiantMove(), new WizardMove());
     }
 
     public void setUpPain(Stage primaryStage) {

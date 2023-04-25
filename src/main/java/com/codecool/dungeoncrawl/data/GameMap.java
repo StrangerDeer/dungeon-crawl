@@ -15,6 +15,7 @@ public class GameMap {
     private Skeleton skeleton;
 
     private Giant giant;
+
     private Wizard wizard;
 
     public GameMap(int width, int height, CellType defaultCellType) {
@@ -39,6 +40,13 @@ public class GameMap {
 
     public void setGiant(Giant giant) {
         this.giant = giant;
+    }
+    public Wizard getWizard() {
+        return wizard;
+    }
+
+    public void setWizard(Wizard wizard) {
+        this.wizard = wizard;
     }
 
     public Player getPlayer() {
