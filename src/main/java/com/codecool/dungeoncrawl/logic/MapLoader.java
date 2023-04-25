@@ -56,7 +56,7 @@ public class MapLoader {
                             break;
                         case 'g':
                             cell.setType(CellType.FLOOR);
-                            new Ghost(cell);
+                            map.setGhost(new Ghost(cell));
                             break;
                         case'w':
                             cell.setType(CellType.FLOOR);

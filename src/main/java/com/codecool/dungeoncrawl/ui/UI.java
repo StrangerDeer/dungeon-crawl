@@ -4,6 +4,7 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
 import com.codecool.dungeoncrawl.ui.enemiesmove.EnemiesMoves;
+import com.codecool.dungeoncrawl.ui.enemiesmove.GhostMove;
 import com.codecool.dungeoncrawl.ui.enemiesmove.SkeletonMove;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
 import javafx.scene.Scene;
@@ -13,6 +14,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class UI {
@@ -21,8 +24,7 @@ public class UI {
     private MainStage mainStage;
     private GameLogic logic;
     private Set<KeyHandler> keyHandlers;
-    private EnemiesMoves enemiesMoves = new SkeletonMove();
-    private EnemiesMoves enemiesMoves2 = new SkeletonMove();
+    private List<EnemiesMoves> enemiesMoves = new ArrayList<>();
 
     public UI(GameLogic logic, Set<KeyHandler> keyHandlers) {
         this.canvas = new Canvas(
@@ -32,6 +34,7 @@ public class UI {
         this.context = canvas.getGraphicsContext2D();
         this.mainStage = new MainStage(canvas);
         this.keyHandlers = keyHandlers;
+        this.enemiesMoves = List.of(new SkeletonMove(), new GhostMove());
     }
 
     public void setUpPain(Stage primaryStage) {
@@ -51,7 +54,9 @@ public class UI {
     }
 
     private void enemiesMoves(){
-        enemiesMoves.perform(logic.getMap(), 0);
+        for (EnemiesMoves enemyMove : enemiesMoves) {
+            enemyMove.perform(logic.getMap(),0);
+        }
     }
 
     public void refresh() {

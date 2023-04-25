@@ -7,22 +7,22 @@ public class SkeletonMove implements EnemiesMoves {
     private boolean moveRight = true;
     private boolean moveLeft = false;
     @Override
-    public void perform(GameMap map, int step) {
+    public void perform(GameMap map, int position) {
 
-        if(!map.getSkeleton().getCell().getNeighbor(step + 1, 0).getType().equals(CellType.FLOOR)){
+        if(!map.getSkeleton().getCell().getNeighbor(position + 1, 0).getType().equals(CellType.FLOOR)){
             this.moveRight = false;
             this.moveLeft = true;
-        }else if (!map.getSkeleton().getCell().getNeighbor(step - 1, 0).getType().equals(CellType.FLOOR)){
+        }else if (!map.getSkeleton().getCell().getNeighbor(position - 1, 0).getType().equals(CellType.FLOOR)){
             this.moveRight = true;
             this.moveLeft = false;
         }
 
         if(moveRight){
-            step++;
-            map.getSkeleton().move(step,0);
+            position++;
+            map.getSkeleton().move(position,0);
         }else if (moveLeft){
-            step--;
-            map.getSkeleton().move(step, 0);
+            position--;
+            map.getSkeleton().move(position, 0);
         }
     }
 }
