@@ -2,20 +2,22 @@ package com.codecool.dungeoncrawl.data.items;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.actors.Actor;
+import com.codecool.dungeoncrawl.data.actors.Player;
 
-public class Key extends Item {
+public class Apple extends Item{
 
-    public Key(Cell cell) {
+    public Apple(Cell cell) {
         super(cell);
     }
 
     @Override
     public void addEffectToPlayer(Actor actor) {
-        actor.addKey();
+        actor.addHealthPoints(5);
     }
 
     @Override
     public String getTileName() {
-        return "Golden key";
+        return "Red apple";
     }
 }
+

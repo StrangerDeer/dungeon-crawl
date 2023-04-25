@@ -2,6 +2,7 @@ package com.codecool.dungeoncrawl.data.items;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.Drawable;
+import com.codecool.dungeoncrawl.data.actors.Actor;
 
 public abstract class Item implements Drawable {
 
@@ -15,5 +16,7 @@ public abstract class Item implements Drawable {
     public Cell getCell() {
         return cell;
     }
+
+    public abstract void addEffectToPlayer(Actor actor);
 
 }

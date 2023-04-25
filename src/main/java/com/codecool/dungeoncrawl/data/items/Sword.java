@@ -10,7 +10,12 @@ public class Sword extends Item {
     }
 
     @Override
+    public void addEffectToPlayer(Actor actor) {
+        actor.addAttackStrength(3);
+    }
+
+    @Override
     public String getTileName() {
-        return "sword";
+        return "Longsword";
     }
 }

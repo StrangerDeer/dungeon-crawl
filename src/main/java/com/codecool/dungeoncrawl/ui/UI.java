@@ -80,5 +80,7 @@ public class UI {
             }
         }
         mainStage.setHealthLabelText(logic.getPlayerHealth());
+        mainStage.setAttackStrengthLabelText(logic.getPlayerAttackStrength());
+        mainStage.setInventoryContentsText(logic.getPlayerItems());
     }
 }

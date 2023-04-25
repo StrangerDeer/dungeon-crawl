@@ -5,6 +5,7 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.enemies.Giant;
 import com.codecool.dungeoncrawl.data.actors.enemies.Wizard;
+import com.codecool.dungeoncrawl.data.items.Apple;
 import com.codecool.dungeoncrawl.data.items.Key;
 import com.codecool.dungeoncrawl.data.actors.Player;
 import com.codecool.dungeoncrawl.data.actors.enemies.Skeleton;
@@ -54,6 +55,10 @@ public class MapLoader {
                         case 'k':
                             cell.setType(CellType.FLOOR);
                             new Key(cell);
+                            break;
+                        case 'a':
+                            cell.setType(CellType.FLOOR);
+                            new Apple(cell);
                             break;
                         case 'g':
                             cell.setType(CellType.FLOOR);
