@@ -11,6 +11,11 @@ public class Apple extends Item{
     }
 
     @Override
+    public void addEffectToPlayer(Actor actor) {
+        actor.addHealthPoints(5);
+    }
+
+    @Override
     public String getTileName() {
         return "Red apple";
     }
