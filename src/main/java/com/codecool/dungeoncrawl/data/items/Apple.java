@@ -1,16 +1,16 @@
 package com.codecool.dungeoncrawl.data.items;
 
 import com.codecool.dungeoncrawl.data.Cell;
-import com.codecool.dungeoncrawl.data.actors.Actor;
 
-public class Sword extends Item {
+public class Apple extends Item{
 
-    public Sword(Cell cell) {
+    public Apple(Cell cell) {
         super(cell);
     }
 
     @Override
     public String getTileName() {
-        return "Longsword";
+        return "Red apple";
     }
 }
+
