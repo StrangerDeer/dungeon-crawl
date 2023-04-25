@@ -4,14 +4,14 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.GameMap;
 
 public class SkeletonMove implements EnemiesMoves {
+    private boolean moveRight = true;
+    private boolean moveLeft = false;
     @Override
     public void perform(GameMap map, int step) {
-        boolean moveRight = true;
-        boolean moveLeft = false;
 
         if(!map.getSkeleton().getCell().getNeighbor(step + 1, 0).getType().equals(CellType.FLOOR)){
-            moveRight = false;
-            moveLeft = true;
+            this.moveRight = false;
+            this.moveLeft = true;
         }
 
         if(moveRight){
