@@ -33,6 +33,10 @@ public class MainStage {
         this.statusPane.setHealthValue(text);
     }
 
+    public void setAttackStrengthLabelText(String text) {
+        this.statusPane.setAttackStrengthValue(text);
+    }
+
     public void setInventoryContentsText(List<Item> items) {
         this.statusPane.setInventoryContents(items);
     }

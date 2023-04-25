@@ -10,8 +10,10 @@ import java.util.List;
 
 public abstract class Actor implements Drawable {
     private Cell cell;
-    private int health = 10;
 
+    private boolean hasKey = false;
+
+    private int health;
     private List<Item> items;
 
     public Actor(Cell cell) {
@@ -22,10 +24,12 @@ public abstract class Actor implements Drawable {
 
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
+        System.out.println(cell.getActor().getHealth());
+        System.out.println(cell.getActor().getAttackStrength());
         if (nextCell.getType().equals(CellType.FLOOR) && nextCell.getActor() == null) {
             if (nextCell.getItem() != null) {
-                System.out.println(nextCell.getItem());
                 addItemToInventory(nextCell.getItem());
+                nextCell.getItem().addEffectToPlayer(cell.getActor());
                 nextCell.setItem(null);
             }
             cell.setActor(null);
@@ -43,8 +47,12 @@ public abstract class Actor implements Drawable {
         return items;
     }
 
-    public int getHealth() {
-        return health;
+    public boolean checkIfPlayerHasKey() {
+        return hasKey;
+    }
+
+    public void addKey() {
+        hasKey = true;
     }
 
     public Cell getCell() {
@@ -58,4 +66,14 @@ public abstract class Actor implements Drawable {
     public int getY() {
         return cell.getY();
     }
+
+    public abstract int getHealth();
+
+    public abstract void setHealth(int number);
+
+    public abstract void addHealthPoints(int number);
+
+    public abstract int getAttackStrength();
+
+    public abstract void addAttackStrength(int number);
 }
