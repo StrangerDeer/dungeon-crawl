@@ -12,6 +12,9 @@ public class SkeletonMove implements EnemiesMoves {
         if(!map.getSkeleton().getCell().getNeighbor(step + 1, 0).getType().equals(CellType.FLOOR)){
             this.moveRight = false;
             this.moveLeft = true;
+        }else if (!map.getSkeleton().getCell().getNeighbor(step - 1, 0).getType().equals(CellType.FLOOR)){
+            this.moveRight = true;
+            this.moveLeft = false;
         }
 
         if(moveRight){
