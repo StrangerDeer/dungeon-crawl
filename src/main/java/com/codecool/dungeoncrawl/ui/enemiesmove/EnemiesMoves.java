@@ -4,5 +4,5 @@ import com.codecool.dungeoncrawl.data.GameMap;
 
 public interface EnemiesMoves {
 
-    void perform(GameMap map, int moveDirection);
+    void perform(GameMap map, int step);
 }

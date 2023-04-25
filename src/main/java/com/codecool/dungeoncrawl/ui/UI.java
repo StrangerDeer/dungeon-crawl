@@ -42,19 +42,18 @@ public class UI {
         logic.setup();
         refresh();
         scene.setOnKeyPressed(this::onKeyPressed);
-        enemiesMoves();
     }
 
     private void onKeyPressed(KeyEvent keyEvent) {
         for (KeyHandler keyHandler : keyHandlers) {
             keyHandler.perform(keyEvent, logic.getMap());
         }
+        enemiesMoves();
         refresh();
     }
 
     private void enemiesMoves(){
-        enemiesMoves.perform(logic.getMap(), 4);
-        refresh();
+        enemiesMoves.perform(logic.getMap(), 0);
     }
 
     public void refresh() {
