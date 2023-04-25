@@ -2,27 +2,14 @@ package com.codecool.dungeoncrawl.ui.enemiesmove;
 
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.GameMap;
+import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
 
-public class GiantMove implements  EnemiesMoves{
+public class GiantMove implements EnemyMove {
 
-    private boolean moveUp = true;
-    private boolean moveDown;
+
     @Override
-    public void perform(GameMap map, int position) {
-        if(!map.getGiant().getCell().getNeighbor(0, position + 1).getType().equals(CellType.FLOOR)){
-            this.moveUp = false;
-            this.moveDown = true;
-        }else if (!map.getGiant().getCell().getNeighbor(0, position - 1).getType().equals(CellType.FLOOR)){
-            this.moveUp = true;
-            this.moveDown = false;
-        }
+    public void perform(GameMap map, int position, Enemy enemy) {
 
-        if(moveUp){
-            position++;
-            map.getGiant().move(0,position);
-        }else if (moveDown){
-            position--;
-            map.getGiant().move(0, position);
-        }
+
     }
 }
