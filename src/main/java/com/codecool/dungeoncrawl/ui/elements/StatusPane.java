@@ -5,6 +5,8 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,15 +19,23 @@ public class StatusPane {
     private GridPane ui;
     private Label healthTextLabel;
     private Label healthValueLabel;
+    private Label emptyLine;
     private Label inventoryLabel;
     private Label inventoryContents;
+    private final double MAX_FONT_SIZE = 22.0;
 
     public StatusPane() {
         ui = new GridPane();
         healthTextLabel = new Label("Health: ");
+        healthTextLabel.setFont(new Font(MAX_FONT_SIZE));
         healthValueLabel = new Label();
+        healthValueLabel.setTextFill(Color.color(1, 0, 0));
+        healthValueLabel.setFont(new Font(MAX_FONT_SIZE));
+        emptyLine = new Label("   ");
         inventoryLabel = new Label("Inventory: ");
+        inventoryLabel.setFont(new Font(MAX_FONT_SIZE));
         inventoryContents = new Label();
+        inventoryContents.setFont(new Font(MAX_FONT_SIZE));
     }
 
     public BorderPane build() {
@@ -34,9 +44,10 @@ public class StatusPane {
         ui.setPadding(new Insets(RIGHT_PANEL_PADDING));
 
         ui.add(healthTextLabel, 0, 0);
-        ui.add(healthValueLabel, 1, 0);
-        ui.add(inventoryLabel, 0, 1);
-        ui.add(inventoryContents, 1, 1);
+        ui.add(healthValueLabel, 0, 1);
+        ui.add(emptyLine, 1, 2);
+        ui.add(inventoryLabel, 0, 3);
+        ui.add(inventoryContents,  0, 4);
 
         BorderPane borderPane = new BorderPane();
         borderPane.setRight(ui);
@@ -44,15 +55,17 @@ public class StatusPane {
     }
 
     public void setHealthValue(String text) {
-        healthValueLabel.setText(text);
+        String hearts = new String(new char[Integer.parseInt(text)]).replace("\0", "♥");
+        healthValueLabel.setText(hearts);
+
     }
 
     public void setInventoryContents(List<Item> items) {
         List<String> itemList = new ArrayList<>();
         for (Item item : items) {
-            itemList.add(item.getTileName());
+            itemList.add(" - " + item.getTileName());
         }
         inventoryContents.setText(itemList.stream()
-                .collect(joining(", ")));
+                .collect(joining(",\n")));
     }
 }
