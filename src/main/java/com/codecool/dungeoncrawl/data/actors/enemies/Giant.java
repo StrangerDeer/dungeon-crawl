@@ -13,6 +13,7 @@ public class Giant extends Enemy {
         super(cell);
     }
 
+
     @Override
     public int getHealth() {
         return 0;
@@ -39,7 +40,13 @@ public class Giant extends Enemy {
     }
 
     @Override
-    public void moveEnemy(GameMap map, int position) {
+    public void moveEnemy(int position) {
+
+        moveFieldChecker(position);
+        makeMove(position);
+    }
+    @Override
+    protected void moveFieldChecker(int position) {
         if(!getCell().getNeighbor(0, position + 1).getType().equals(CellType.FLOOR)){
             this.moveUp = false;
             this.moveDown = true;
@@ -47,7 +54,10 @@ public class Giant extends Enemy {
             this.moveUp = true;
             this.moveDown = false;
         }
+    }
 
+    @Override
+    protected void makeMove(int position) {
         if(moveUp){
             position++;
             move(0,position);

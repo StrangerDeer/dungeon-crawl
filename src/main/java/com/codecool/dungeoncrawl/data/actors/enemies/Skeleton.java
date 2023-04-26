@@ -40,7 +40,14 @@ public class Skeleton extends Enemy {
 
 
     @Override
-    public void moveEnemy(GameMap map, int position) {
+    public void moveEnemy(int position) {
+
+        moveFieldChecker(position);
+        makeMove(position);
+    }
+
+    @Override
+    protected void moveFieldChecker(int position){
         if(!getCell().getNeighbor(position + 1, 0).getType().equals(CellType.FLOOR)){
             this.moveRight = false;
             this.moveLeft = true;
@@ -48,7 +55,10 @@ public class Skeleton extends Enemy {
             this.moveRight = true;
             this.moveLeft = false;
         }
+    }
 
+    @Override
+    protected void makeMove(int position) {
         if(moveRight){
             position++;
             move(position,0);
