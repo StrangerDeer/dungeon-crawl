@@ -28,7 +28,6 @@ public class Wizard extends Enemy {
         while(getCell().getNeighbor(0,view).getType().equals(CellType.FLOOR)){
             view++;
         }
-        System.out.println(view - 1);
 
     }
 
