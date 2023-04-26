@@ -27,6 +27,9 @@ public class Cell implements Drawable {
         gameMap.addSpell(spell);
     }
 
+    public void removeSpell(Spell spell){
+        gameMap.removeSpell(spell);
+    }
     public List<Spell> getSpells(){
         return this.spells;
     }

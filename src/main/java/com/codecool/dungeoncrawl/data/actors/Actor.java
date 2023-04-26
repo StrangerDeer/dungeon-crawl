@@ -86,17 +86,21 @@ public abstract class Actor implements Drawable {
     }
 
     private void actorDeath(Cell nextCell){
-        if(nextCell.getActor().getHealth() <= 0){
+        if(nextCell.getActor().getHealth() <= 0 ||
+            nextCell.getActor().typeOfActor().equals("spell")){
             nextCell.setActor(null);
         }
     }
 
     private void actorAttack(Cell nextCell){
-        if((cell.getActor().typeOfActor().equals("player") &&
-                nextCell.getActor().typeOfActor().equals("enemy")) ||
-                (cell.getActor().typeOfActor().equals("enemy") &&
-                        nextCell.getActor().typeOfActor().equals("player"))){
-            nextCell.getActor().setHealth(nextCell.getActor().getHealth() - cell.getActor().getAttackStrength());
+
+        if (cell.getActor() != null) {
+            if ((cell.getActor().typeOfActor().equals("player") &&
+                    nextCell.getActor().typeOfActor().equals("enemy")) ||
+                    (cell.getActor().typeOfActor().equals("enemy") &&
+                            nextCell.getActor().typeOfActor().equals("player"))) {
+                nextCell.getActor().setHealth(nextCell.getActor().getHealth() - cell.getActor().getAttackStrength());
+            }
         }
     }
 

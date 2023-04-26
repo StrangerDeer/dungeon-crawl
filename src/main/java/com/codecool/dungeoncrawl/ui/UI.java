@@ -64,11 +64,13 @@ public class UI {
 
     private void spellsMove(){
 
-        if(logic.getMap().getSpells().size() != 0){
-            for (Spell spell : logic.getMap().getSpells()) {
-                spell.moveEnemy();
+
+            if (logic.getMap().getSpells().size() > 0) {
+                for (Spell spell : logic.getMap().getSpells()) {
+
+                    spell.moveEnemy();
+                }
             }
-        }
 
     }
 

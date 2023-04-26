@@ -10,9 +10,6 @@ import java.util.List;
 
 public class Spell extends Enemy {
 
-    private int xCoordinate = 0;
-    private int yCoordinate = 0;
-
     private boolean exist;
 
     private boolean moveRight;
@@ -39,8 +36,6 @@ public class Spell extends Enemy {
             this.moveUp = true;
             this.exist = true;
         }
-        this.xCoordinate = x;
-        this.yCoordinate = y;
     }
 
     private void dealPlayerDamage(int position){
@@ -120,7 +115,7 @@ public class Spell extends Enemy {
         if(exist){
             return "spell";
         }
-
+        getCell().removeSpell(this);
         return "floor";
     }
 
@@ -149,7 +144,7 @@ public class Spell extends Enemy {
 
     }
 
-    @Override
+   @Override
     protected String typeOfActor() {
         return "spell";
     }

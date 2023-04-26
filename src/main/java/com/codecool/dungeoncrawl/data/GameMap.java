@@ -56,6 +56,9 @@ public class GameMap {
     public List<Spell> getSpells(){
         return spells;
     }
+    public void removeSpell(Spell spell){
+        spells.remove(spell);
+    }
 
     public Player getPlayer() {
         return player;
