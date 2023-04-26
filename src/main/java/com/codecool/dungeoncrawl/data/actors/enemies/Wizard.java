@@ -19,7 +19,8 @@ public class Wizard extends Enemy {
     private void attackView(){
 
         seeDown(position);
-        seeUp();
+        seeUp(position);
+        seeRight(position);
 
     }
 
@@ -31,10 +32,16 @@ public class Wizard extends Enemy {
 
     }
 
-    private void seeUp(){
-        int view = 0;
+    private void seeUp(int view){
 
         while(getCell().getNeighbor(0,- view).getType().equals(CellType.FLOOR)){
+            view++;
+        }
+    }
+
+    private void seeRight(int view){
+        while(getCell().getNeighbor(view,0).getType().equals(CellType.FLOOR)){
+            System.out.println(view);
             view++;
         }
     }
