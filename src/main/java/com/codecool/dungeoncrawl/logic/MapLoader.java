@@ -4,6 +4,7 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.enemies.Giant;
+import com.codecool.dungeoncrawl.data.actors.enemies.Spider;
 import com.codecool.dungeoncrawl.data.actors.enemies.Wizard;
 import com.codecool.dungeoncrawl.data.items.Apple;
 import com.codecool.dungeoncrawl.data.items.Key;
@@ -72,6 +73,10 @@ public class MapLoader {
                             break;
                         case 'd':
                             cell.setType(CellType.DOOR_CLOSED);
+                            break;
+                        case '8':
+                            cell.setType(CellType.FLOOR);
+                            map.addEnemy(new Spider(cell));
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");

@@ -9,8 +9,8 @@ public class Player extends Actor {
     private int attackStrength;
     public Player(Cell cell) {
         super(cell);
-        health = 10;
-        attackStrength = 5;
+        health = 3;
+        attackStrength = 1;
     }
 
     public String getTileName() {

@@ -36,9 +36,13 @@ public abstract class Actor implements Drawable {
             moveActor(nextCell);
         }
         if (nextCell.getType().equals(CellType.DOOR_CLOSED)) {
-            if (cell.getActor().checkIfPlayerHasKey()) {
-                nextCell.setType(CellType.DOOR_OPEN);
-            }
+            openDoorIfPlayerHasKey(nextCell);
+        }
+    }
+
+    private void openDoorIfPlayerHasKey(Cell nextCell) {
+        if (cell.getActor().checkIfPlayerHasKey()) {
+            nextCell.setType(CellType.DOOR_OPEN);
         }
     }
 
