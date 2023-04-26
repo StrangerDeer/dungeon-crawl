@@ -28,9 +28,8 @@ public abstract class Actor implements Drawable {
         if(nextCell.getActor() != null){
             nextCell.getActor().setHealth(nextCell.getActor().getHealth() - cell.getActor().getAttackStrength());
 
-            if(nextCell.getActor().getHealth() <= 0){
-                nextCell.setActor(null);
-            }
+            dead(nextCell);
+
         }
 
         if (nextCell.getType().equals(CellType.FLOOR) && nextCell.getActor() == null) {
@@ -74,6 +73,12 @@ public abstract class Actor implements Drawable {
         return cell.getY();
     }
 
+    private void dead(Cell nextCell){
+        if(nextCell.getActor().getHealth() <= 0){
+            nextCell.setActor(null);
+        }
+    }
+
     public abstract int getHealth();
 
     public abstract void setHealth(int number);
@@ -83,4 +88,5 @@ public abstract class Actor implements Drawable {
     public abstract int getAttackStrength();
 
     public abstract void addAttackStrength(int number);
+
 }
