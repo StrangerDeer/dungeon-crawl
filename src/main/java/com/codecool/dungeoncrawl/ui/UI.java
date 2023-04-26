@@ -57,6 +57,8 @@ public class UI {
                 enemy.moveEnemy(0);
             } else if (enemy.getTileName().equals("wizard")) {
                 enemy.moveEnemy(0);
+            } else if (enemy.getTileName().equals("chicken")) {
+                enemy.moveEnemy(0);
             }
         }
     }
