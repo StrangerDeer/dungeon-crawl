@@ -2,8 +2,6 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
-import com.codecool.dungeoncrawl.data.GameMap;
-import com.codecool.dungeoncrawl.data.actors.Actor;
 
 public class Wizard extends Enemy {
 
@@ -19,10 +17,25 @@ public class Wizard extends Enemy {
     }
 
     private void attackView(){
-        int view = position;
+
+        seeDown(position);
+        seeUp();
+
+    }
+
+    private void seeDown(int view){
 
         while(getCell().getNeighbor(0,view).getType().equals(CellType.FLOOR)){
-            System.out.println(view);
+            view++;
+        }
+        System.out.println(view - 1);
+
+    }
+
+    private void seeUp(){
+        int view = 0;
+
+        while(getCell().getNeighbor(0,- view).getType().equals(CellType.FLOOR)){
             view++;
         }
     }
@@ -54,9 +67,10 @@ public class Wizard extends Enemy {
 
     @Override
     public void moveEnemy() {
-        attackView();
+
         moveFieldChecker(position);
         makeMove(position);
+        attackView();
 
     }
 
