@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl.ui;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
@@ -19,7 +20,6 @@ public class UI {
     private MainStage mainStage;
     private GameLogic logic;
     private Set<KeyHandler> keyHandlers;
-
 
     public UI(GameLogic logic, Set<KeyHandler> keyHandlers) {
         this.canvas = new Canvas(
@@ -43,7 +43,25 @@ public class UI {
         for (KeyHandler keyHandler : keyHandlers) {
             keyHandler.perform(keyEvent, logic.getMap());
         }
+        enemiesMoves();
         refresh();
+    }
+
+    private void enemiesMoves(){
+
+
+        for (Enemy enemy : logic.getMap().getEnemies()){
+            if(enemy.getTileName().equals("skeleton")){
+                enemy.moveEnemy(logic.getMap(), 0);
+            }else if(enemy.getTileName().equals("giant")){
+                enemy.moveEnemy(logic.getMap(), 0);
+            } else if (enemy.getTileName().equals("wizard")) {
+                enemy.moveEnemy(logic.getMap(), 0);
+            }
+        }
+       /* for (EnemiesMoves enemyMove : enemiesMoves) {
+            enemyMove.perform(logic.getMap(),0);
+        }*/
     }
 
     public void refresh() {
