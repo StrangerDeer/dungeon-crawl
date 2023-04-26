@@ -23,7 +23,7 @@ public class Skeleton extends Enemy {
 
     @Override
     public void setHealth(int number) {
-        health = number;
+        this.health = number;
     }
 
     @Override

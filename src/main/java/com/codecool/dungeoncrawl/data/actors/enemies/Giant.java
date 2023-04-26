@@ -5,6 +5,10 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.GameMap;
 
 public class Giant extends Enemy {
+
+    private int health = 40;
+
+    private int attack = 5;
     private boolean moveUp = true;
     private boolean moveDown;
 
@@ -16,12 +20,12 @@ public class Giant extends Enemy {
 
     @Override
     public int getHealth() {
-        return 0;
+        return health;
     }
 
     @Override
     public void setHealth(int number) {
-
+        this.health = number;
     }
 
     @Override
