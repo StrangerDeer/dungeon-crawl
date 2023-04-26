@@ -2,9 +2,12 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
-import com.codecool.dungeoncrawl.data.GameMap;
+import com.codecool.dungeoncrawl.data.actors.Actor;
 
 public class Skeleton extends Enemy {
+
+    private int health = 20;
+    private int attack = 1;
 
     private boolean moveRight = true;
     private boolean moveLeft;
@@ -15,12 +18,12 @@ public class Skeleton extends Enemy {
 
     @Override
     public int getHealth() {
-        return 0;
+        return health;
     }
 
     @Override
     public void setHealth(int number) {
-
+        health = number;
     }
 
     @Override
@@ -30,7 +33,7 @@ public class Skeleton extends Enemy {
 
     @Override
     public int getAttackStrength() {
-        return 0;
+        return attack;
     }
 
     @Override
@@ -41,7 +44,6 @@ public class Skeleton extends Enemy {
 
     @Override
     public void moveEnemy(int position) {
-
         moveFieldChecker(position);
         makeMove(position);
     }

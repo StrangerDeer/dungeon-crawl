@@ -41,7 +41,6 @@ public class Wizard extends Enemy {
 
     @Override
     public void moveEnemy(int position) {
-
         moveFieldChecker(position);
         makeMove(position);
 
