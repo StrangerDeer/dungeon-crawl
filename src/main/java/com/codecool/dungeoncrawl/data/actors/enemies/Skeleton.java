@@ -72,6 +72,11 @@ public class Skeleton extends Enemy {
 
     @Override
     public String getTileName() {
+
+        if(health <= 0){
+            return "floor";
+        }
+
         return "skeleton";
     }
 }

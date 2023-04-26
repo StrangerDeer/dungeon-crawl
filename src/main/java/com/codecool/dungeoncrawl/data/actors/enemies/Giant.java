@@ -35,7 +35,7 @@ public class Giant extends Enemy {
 
     @Override
     public int getAttackStrength() {
-        return 0;
+        return attack;
     }
 
     @Override
@@ -74,6 +74,11 @@ public class Giant extends Enemy {
 
     @Override
     public String getTileName() {
+
+        if(health <= 0){
+            return "floor";
+        }
+
         return "giant";
     }
 }
