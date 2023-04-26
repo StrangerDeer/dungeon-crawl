@@ -31,19 +31,31 @@ public abstract class Actor implements Drawable {
             actorDeath(nextCell);
 
         }
-
-        if (nextCell.getType().equals(CellType.FLOOR) && nextCell.getActor() == null) {
-            if (nextCell.getItem() != null) {
-                addItemToInventory(nextCell.getItem());
-                nextCell.getItem().addEffectToPlayer(cell.getActor());
-                nextCell.setItem(null);
+        
+        if ((nextCell.getType().equals(CellType.FLOOR) || nextCell.getType().equals(CellType.DOOR_OPEN)) && nextCell.getActor() == null) {
+            moveActor(nextCell);
+        }
+        if (nextCell.getType().equals(CellType.DOOR_CLOSED)) {
+            if (cell.getActor().checkIfPlayerHasKey()) {
+                nextCell.setType(CellType.DOOR_OPEN);
             }
-            cell.setActor(null);
-            nextCell.setActor(this);
-            cell = nextCell;
         }
     }
 
+    private void moveActor(Cell nextCell) {
+        if (nextCell.getItem() != null) {
+            pickUpItem(nextCell);
+        }
+        cell.setActor(null);
+        nextCell.setActor(this);
+        cell = nextCell;
+    }
+
+    private void pickUpItem(Cell nextCell) {
+        addItemToInventory(nextCell.getItem());
+        nextCell.getItem().addEffectToPlayer(cell.getActor());
+        nextCell.setItem(null);
+    }
 
     public void addItemToInventory(Item item) {
         items.add(item);

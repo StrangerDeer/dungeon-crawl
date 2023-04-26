@@ -70,6 +70,9 @@ public class MapLoader {
                             /*map.setWizard(new Wizard(cell));*/
                             map.addEnemy(new Wizard(cell));
                             break;
+                        case 'd':
+                            cell.setType(CellType.DOOR_CLOSED);
+                            break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
                     }
