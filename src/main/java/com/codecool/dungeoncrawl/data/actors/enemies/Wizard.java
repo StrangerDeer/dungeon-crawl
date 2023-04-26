@@ -18,6 +18,15 @@ public class Wizard extends Enemy {
         super(cell);
     }
 
+    private void attackView(){
+        int view = position;
+
+        while(getCell().getNeighbor(0,view).getType().equals(CellType.FLOOR)){
+            System.out.println(view);
+            view++;
+        }
+    }
+
     @Override
     public int getHealth() {
         return health;
@@ -45,6 +54,7 @@ public class Wizard extends Enemy {
 
     @Override
     public void moveEnemy() {
+        attackView();
         moveFieldChecker(position);
         makeMove(position);
 
