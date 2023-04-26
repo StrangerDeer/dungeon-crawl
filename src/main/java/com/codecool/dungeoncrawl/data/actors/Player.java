@@ -40,4 +40,9 @@ public class Player extends Actor {
     public void addAttackStrength(int number) {
         attackStrength += number;
     }
+
+    @Override
+    protected String typeOfActor() {
+        return "player";
+    }
 }

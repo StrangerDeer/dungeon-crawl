@@ -52,16 +52,13 @@ public class UI {
 
         for (Enemy enemy : logic.getMap().getEnemies()){
             if(enemy.getTileName().equals("skeleton")){
-                enemy.moveEnemy(logic.getMap(), 0);
+                enemy.moveEnemy(0);
             }else if(enemy.getTileName().equals("giant")){
-                enemy.moveEnemy(logic.getMap(), 0);
+                enemy.moveEnemy(0);
             } else if (enemy.getTileName().equals("wizard")) {
-                enemy.moveEnemy(logic.getMap(), 0);
+                enemy.moveEnemy(0);
             }
         }
-       /* for (EnemiesMoves enemyMove : enemiesMoves) {
-            enemyMove.perform(logic.getMap(),0);
-        }*/
     }
 
     public void refresh() {

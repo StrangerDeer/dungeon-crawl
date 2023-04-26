@@ -6,6 +6,8 @@ import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.Actor;
 
 public class Wizard extends Enemy {
+
+    private int health = 25;
     private boolean moveUp = true;
     private boolean moveLeft;
     private boolean moveDown;
@@ -16,12 +18,12 @@ public class Wizard extends Enemy {
 
     @Override
     public int getHealth() {
-        return 0;
+        return health;
     }
 
     @Override
     public void setHealth(int number) {
-
+        this.health = number;
     }
 
     @Override
@@ -40,7 +42,14 @@ public class Wizard extends Enemy {
     }
 
     @Override
-    public void moveEnemy(GameMap map, int position) {
+    public void moveEnemy(int position) {
+        moveFieldChecker(position);
+        makeMove(position);
+
+    }
+
+    @Override
+    protected void moveFieldChecker(int position) {
         if(!getCell().getNeighbor(0, position - 1).getType().equals(CellType.FLOOR) &&
                 getCell().getNeighbor(position - 1, 0).getType().equals(CellType.FLOOR)){
             moveUp = false;
@@ -58,7 +67,10 @@ public class Wizard extends Enemy {
             moveRight = false;
             moveUp = true;
         }
+    }
 
+    @Override
+    protected void makeMove(int position) {
         if(moveRight){
             position++;
             move(position,0);
@@ -72,11 +84,14 @@ public class Wizard extends Enemy {
             position++;
             move(0, position);
         }
-
     }
 
     @Override
     public String getTileName() {
+
+        if(health <= 0){
+            return "floor";
+        }
         return "wizard";
     }
 }
