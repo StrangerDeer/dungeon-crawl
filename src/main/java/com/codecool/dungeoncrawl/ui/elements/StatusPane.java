@@ -79,13 +79,13 @@ public class StatusPane {
     }
 
     public void setHealthValue(String text) {
-        String hearts = new String(new char[Integer.parseInt(text)]).replace("\0", "♥");
+        String hearts = new String(new char[Integer.parseInt(text)]).replace("\0", "♥").replaceAll(".{15}",  "$0\n");;
         healthValueLabel.setText(hearts);
 
     }
 
     public void setAttackStrengthValue(String text) {
-        String swords = new String(new char[Integer.parseInt(text)]).replace("\0", "\uD83D\uDDE1");
+        String swords = new String(new char[Integer.parseInt(text)]).replace("\0", "\uD83D\uDDE1").replaceAll(".{10}",  "$0\n");;
         attackStrengthValueLabel.setText(swords);
     }
 
