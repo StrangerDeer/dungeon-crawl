@@ -3,20 +3,19 @@ package com.codecool.dungeoncrawl.data.items;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.actors.Actor;
 
-public class Apple extends Item{
+public class Cheese extends Item{
 
-    public Apple(Cell cell) {
+    public Cheese(Cell cell) {
         super(cell);
     }
 
     @Override
     public void addEffectToPlayer(Actor actor) {
-        actor.addHealthPoints(5);
+        actor.addHealthPoints(10);
     }
 
     @Override
     public String getTileName() {
-        return "Red apple";
+        return "Cheesy cheese";
     }
 }
-

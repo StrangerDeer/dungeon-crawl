@@ -3,13 +3,9 @@ package com.codecool.dungeoncrawl.logic;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.GameMap;
-import com.codecool.dungeoncrawl.data.actors.enemies.Giant;
-import com.codecool.dungeoncrawl.data.actors.enemies.Wizard;
-import com.codecool.dungeoncrawl.data.items.Apple;
-import com.codecool.dungeoncrawl.data.items.Key;
+import com.codecool.dungeoncrawl.data.actors.enemies.*;
+import com.codecool.dungeoncrawl.data.items.*;
 import com.codecool.dungeoncrawl.data.actors.Player;
-import com.codecool.dungeoncrawl.data.actors.enemies.Skeleton;
-import com.codecool.dungeoncrawl.data.items.Sword;
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -72,6 +68,34 @@ public class MapLoader {
                             break;
                         case 'd':
                             cell.setType(CellType.DOOR_CLOSED);
+                            break;
+                        case '8':
+                            cell.setType(CellType.FLOOR);
+                            map.addEnemy(new Spider(cell));
+                            break;
+                        case 'u':
+                            cell.setType(CellType.FLOOR);
+                            new Uzi(cell);
+                            break;
+                        case 'c':
+                            cell.setType(CellType.FLOOR);
+                            new Cheese(cell);
+                            break;
+                        case '~':
+                            cell.setType(CellType.WATER);
+                            break;
+                        case 'b':
+                            cell.setType(CellType.BRIDGE);
+                            break;
+                        case ',':
+                            cell.setType(CellType.GRASS);
+                            break;
+                        case '|':
+                            cell.setType(CellType.OUTSIDE_WALL);
+                            break;
+                        case 'C':
+                            cell.setType(CellType.GRASS);
+                            map.addEnemy(new Chicken(cell));
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
