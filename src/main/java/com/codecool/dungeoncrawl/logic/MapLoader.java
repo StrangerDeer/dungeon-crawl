@@ -5,6 +5,7 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.GameMap;
 import com.codecool.dungeoncrawl.data.actors.enemies.Giant;
 import com.codecool.dungeoncrawl.data.actors.enemies.Wizard;
+import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 import com.codecool.dungeoncrawl.data.items.Apple;
 import com.codecool.dungeoncrawl.data.items.Key;
 import com.codecool.dungeoncrawl.data.actors.Player;
@@ -41,7 +42,6 @@ public class MapLoader {
                             break;
                         case 's':
                             cell.setType(CellType.FLOOR);
-                            /*map.setSkeleton(new Skeleton(cell));*/
                             map.addEnemy(new Skeleton(cell));
                             break;
                         case '@':
@@ -62,16 +62,18 @@ public class MapLoader {
                             break;
                         case 'g':
                             cell.setType(CellType.FLOOR);
-                            /*map.setGiant(new Giant(cell));*/
                             map.addEnemy(new Giant(cell));
                             break;
                         case'w':
                             cell.setType(CellType.FLOOR);
-                            /*map.setWizard(new Wizard(cell));*/
                             map.addEnemy(new Wizard(cell));
                             break;
                         case 'd':
                             cell.setType(CellType.DOOR_CLOSED);
+                            break;
+                        case '*':
+                            cell.setType(CellType.FLOOR);
+                            cell.setActor(new Spell(cell,0,0));
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");

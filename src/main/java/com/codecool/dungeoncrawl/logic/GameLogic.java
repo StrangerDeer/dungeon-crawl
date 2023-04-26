@@ -2,9 +2,11 @@ package com.codecool.dungeoncrawl.logic;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.GameMap;
+import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 import com.codecool.dungeoncrawl.data.items.Item;
 
 import java.util.List;
+import java.util.Spliterator;
 
 public class GameLogic {
     private GameMap map;
