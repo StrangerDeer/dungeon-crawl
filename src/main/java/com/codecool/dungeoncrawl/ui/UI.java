@@ -52,11 +52,11 @@ public class UI {
 
         for (Enemy enemy : logic.getMap().getEnemies()){
             if(enemy.getTileName().equals("skeleton")){
-                enemy.moveEnemy(0);
+                enemy.moveEnemy();
             }else if(enemy.getTileName().equals("giant")){
-                enemy.moveEnemy(0);
+                enemy.moveEnemy();
             } else if (enemy.getTileName().equals("wizard")) {
-                enemy.moveEnemy(0);
+                enemy.moveEnemy();
             }
         }
     }

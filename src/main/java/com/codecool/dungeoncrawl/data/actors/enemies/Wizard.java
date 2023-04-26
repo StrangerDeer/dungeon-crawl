@@ -9,6 +9,8 @@ public class Wizard extends Enemy {
 
     private int health = 25;
     private boolean moveUp = true;
+
+    private int position = 0;
     private boolean moveLeft;
     private boolean moveDown;
     private boolean moveRight;
@@ -42,7 +44,7 @@ public class Wizard extends Enemy {
     }
 
     @Override
-    public void moveEnemy(int position) {
+    public void moveEnemy() {
         moveFieldChecker(position);
         makeMove(position);
 
