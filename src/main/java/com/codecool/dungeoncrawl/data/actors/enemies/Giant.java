@@ -47,6 +47,7 @@ public class Giant extends Enemy {
     }
     @Override
     protected void moveFieldChecker(int position) {
+
         if(!getCell().getNeighbor(0, position + 1).getType().equals(CellType.FLOOR)){
             this.moveUp = false;
             this.moveDown = true;
