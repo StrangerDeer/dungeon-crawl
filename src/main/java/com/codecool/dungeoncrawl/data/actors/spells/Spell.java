@@ -62,6 +62,12 @@ public class Spell extends Enemy {
             getCell().getNeighbor(0, position - 1).getActor().setHealth(
                     getCell().getNeighbor(0, position - 1).getActor().getHealth() - damage);
             this.exist = false;
+        }else if(moveLeft &&
+                getCell().getNeighbor(position - 1, 0).getActor() != null &&
+                getCell().getNeighbor(position - 1, 0).getActor().getTileName().equals("player") ){
+            getCell().getNeighbor(position - 1, 0).getActor().setHealth(
+                    getCell().getNeighbor(position - 1, 0).getActor().getHealth() - damage);
+            this.exist = false;
         }
     }
 
