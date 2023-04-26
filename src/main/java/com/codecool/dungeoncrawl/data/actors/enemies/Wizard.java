@@ -18,38 +18,56 @@ public class Wizard extends Enemy {
 
     private void attackView(){
 
-        seeDown(position);
-        seeUp(position);
-        seeRight(position);
-        seeLeft(position);
+        seeDown();
+        seeUp();
+        seeRight();
+        seeLeft();
 
     }
 
-    private void seeDown(int view){
+    private void seeDown(){
+        int view = 1;
 
         while(getCell().getNeighbor(0,view).getType().equals(CellType.FLOOR)){
+            checkCell(0,view);
             view++;
         }
 
     }
 
-    private void seeUp(int view){
+    private void seeUp(){
+        int view = 1;
 
         while(getCell().getNeighbor(0,- view).getType().equals(CellType.FLOOR)){
+            checkCell(0, -view);
             view++;
         }
     }
 
-    private void seeRight(int view){
+    private void seeRight(){
+        int view = 1;
+
         while(getCell().getNeighbor(view,0).getType().equals(CellType.FLOOR)){
+            checkCell(view,0);
             view++;
         }
     }
 
-    private void seeLeft(int view){
+    private void seeLeft(){
+        int view = 1;
+
         while(getCell().getNeighbor(- view,0).getType().equals(CellType.FLOOR)){
+            checkCell(- view, 0);
             view++;
         }
+    }
+
+    private void checkCell(int x, int y){
+        if(getCell().getNeighbor(x,y).getActor() != null &&
+                getCell().getNeighbor(x,y).getActor().getTileName().equals("player")&&
+                    (y>1 || y<-1 || x>1 || x< -1)){
+            System.out.println("I can see you");
+        };
     }
 
     @Override
