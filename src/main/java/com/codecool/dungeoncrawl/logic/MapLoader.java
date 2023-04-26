@@ -84,6 +84,18 @@ public class MapLoader {
                             cell.setType(CellType.FLOOR);
                             new Cheese(cell);
                             break;
+                        case '~':
+                            cell.setType(CellType.WATER);
+                            break;
+                        case 'b':
+                            cell.setType(CellType.BRIDGE);
+                            break;
+                        case ',':
+                            cell.setType(CellType.GRASS);
+                            break;
+                        case '|':
+                            cell.setType(CellType.OUTSIDE_WALL);
+                            break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
                     }

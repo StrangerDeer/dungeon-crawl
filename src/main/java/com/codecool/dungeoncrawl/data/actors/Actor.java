@@ -26,13 +26,12 @@ public abstract class Actor implements Drawable {
         Cell nextCell = cell.getNeighbor(dx, dy);
 
         if(nextCell.getActor() != null){
-
             actorAttack(nextCell);
             actorDeath(nextCell);
 
         }
         
-        if ((nextCell.getType().equals(CellType.FLOOR) || nextCell.getType().equals(CellType.DOOR_OPEN)) && nextCell.getActor() == null) {
+        if ((nextCell.getType().equals(CellType.FLOOR) || nextCell.getType().equals(CellType.DOOR_OPEN) || nextCell.getType().equals(CellType.BRIDGE) || nextCell.getType().equals(CellType.GRASS)) && nextCell.getActor() == null) {
             moveActor(nextCell);
         }
         if (nextCell.getType().equals(CellType.DOOR_CLOSED)) {
