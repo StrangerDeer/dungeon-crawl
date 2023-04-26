@@ -40,4 +40,8 @@ public class MainStage {
     public void setInventoryContentsText(List<Item> items) {
         this.statusPane.setInventoryContents(items);
     }
+
+    public void setEndGameLabelText(int playerHealth, int chickenHealth) {
+        this.statusPane.setEndGameLabel(playerHealth, chickenHealth);
+    }
 }

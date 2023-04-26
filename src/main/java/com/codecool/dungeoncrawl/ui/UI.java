@@ -81,5 +81,6 @@ public class UI {
         mainStage.setHealthLabelText(logic.getPlayerHealth());
         mainStage.setAttackStrengthLabelText(logic.getPlayerAttackStrength());
         mainStage.setInventoryContentsText(logic.getPlayerItems());
+        mainStage.setEndGameLabelText(Integer.parseInt(logic.getPlayerHealth()), Integer.parseInt(logic.getChickenHealth()));
     }
 }
