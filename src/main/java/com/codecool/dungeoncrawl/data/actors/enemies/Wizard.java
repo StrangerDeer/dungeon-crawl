@@ -55,7 +55,8 @@ public class Wizard extends Enemy {
 
         while(getCell().getNeighbor(view,0).getType().equals(CellType.FLOOR)){
             if(checkPlayer(view,0)){
-                new Spell(getCell().getNeighbor(1,0),1,0);
+                Spell spell = new Spell(getCell().getNeighbor(1,0),1,0);
+                getCell().addSpell(spell);
             };
             view++;
         }
@@ -66,7 +67,8 @@ public class Wizard extends Enemy {
 
         while(getCell().getNeighbor(- view,0).getType().equals(CellType.FLOOR)){
             if(checkPlayer(- view, 0)){
-                new Spell(getCell().getNeighbor(-1,0),-1,0);
+                Spell spell = new Spell(getCell().getNeighbor(-1, 0),-1,0);
+                getCell().addSpell(spell);
             };
             view++;
         }
