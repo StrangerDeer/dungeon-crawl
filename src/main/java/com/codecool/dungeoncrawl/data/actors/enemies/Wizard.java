@@ -43,7 +43,8 @@ public class Wizard extends Enemy {
 
         while(getCell().getNeighbor(0,- view).getType().equals(CellType.FLOOR)){
             if(checkPlayer(0, -view)){
-                new Spell(getCell().getNeighbor(0, -1),0,-1);
+                Spell spell = new Spell(getCell().getNeighbor(0, -1),0,-1);
+                getCell().addSpell(spell);
             };
             view++;
         }

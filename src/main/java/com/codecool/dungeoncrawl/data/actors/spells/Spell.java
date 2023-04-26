@@ -34,8 +34,11 @@ public class Spell extends Enemy {
         if (xCoordinate > 0){
             position++;
             move(position,0);
-        }else if(yCoordinate != 0){
+        }else if(yCoordinate > 0){
             position++;
+            move(0,position);
+        }else if(yCoordinate < 0){
+            position--;
             move(0,position);
         }
     }
