@@ -10,10 +10,6 @@ public class Chicken extends Wizard {
     private int health = 200;
 
     private int attack = 3;
-    private boolean moveUp = true;
-    private boolean moveLeft;
-    private boolean moveDown;
-    private boolean moveRight;
 
     private final CellType floorType = CellType.GRASS;
 
@@ -108,33 +104,10 @@ public class Chicken extends Wizard {
 
     @Override
     public void moveEnemy() {
-        moveFieldChecker(0);
+        moveFieldChecker(0, floorType);
         makeMove(0);
         attackView();
     }
-
-    @Override
-    protected void moveFieldChecker(int position) {
-
-        if(!getCell().getNeighbor(0, position - 1).getType().equals(floorType) &&
-                getCell().getNeighbor(position - 1, 0).getType().equals(floorType)){
-            moveUp = false;
-            moveLeft = true;
-        }else if (!getCell().getNeighbor(position - 1, 0).getType().equals(floorType) &&
-                getCell().getNeighbor(0, position + 1).getType().equals(floorType)){
-            moveLeft = false;
-            moveDown = true;
-        }else if (!getCell().getNeighbor(0, position + 1).getType().equals(floorType) &&
-                getCell().getNeighbor(position + 1, 0).getType().equals(floorType)){
-            moveDown = false;
-            moveRight = true;
-        }else if(!getCell().getNeighbor(position + 1, 0).getType().equals(floorType) &&
-                getCell().getNeighbor(0, position - 1).getType().equals(floorType)){
-            moveRight = false;
-            moveUp = true;
-        }
-    }
-
     @Override
     protected void makeMove(int position) {
         if(moveRight){

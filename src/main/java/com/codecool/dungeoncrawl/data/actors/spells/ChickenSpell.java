@@ -62,13 +62,13 @@ public class ChickenSpell extends Spell{
 
     @Override
     public void moveEnemy() {
-        moveFieldChecker(0);
+        moveFieldChecker(0, CellType.GRASS);
         makeMove(0);
 
     }
 
     @Override
-    protected void moveFieldChecker(int position) {
+    protected void moveFieldChecker(int position, CellType floorType) {
         if (moveRight &&
                 !getCell().getNeighbor(position + 1, 0).getType().equals(CellType.GRASS)){
             this.exist = false;

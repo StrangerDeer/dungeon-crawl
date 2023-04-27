@@ -42,7 +42,7 @@ public class Spider extends Enemy {
     }
 
     @Override
-    protected void moveFieldChecker(int position){
+    protected void moveFieldChecker(int position, CellType floorType){
 
     }
 

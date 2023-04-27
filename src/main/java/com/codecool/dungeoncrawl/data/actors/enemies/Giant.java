@@ -50,11 +50,11 @@ public class Giant extends Enemy {
     @Override
     public void moveEnemy() {
 
-        moveFieldChecker(position);
+        moveFieldChecker(position, floorType);
         makeMove(position);
     }
     @Override
-    protected void moveFieldChecker(int position) {
+    protected void moveFieldChecker(int position, CellType floorType) {
 
         if(!getCell().getNeighbor(0, position + 1).getType().equals(floorType)){
             this.moveUp = false;

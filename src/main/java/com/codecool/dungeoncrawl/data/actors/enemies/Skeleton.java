@@ -47,12 +47,12 @@ public class Skeleton extends Enemy {
 
     @Override
     public void moveEnemy() {
-        moveFieldChecker(position);
+        moveFieldChecker(position, floorType);
         makeMove(position);
     }
 
     @Override
-    protected void moveFieldChecker(int position){
+    protected void moveFieldChecker(int position, CellType floorType){
         if(!getCell().getNeighbor(position + 1, 0).getType().equals(floorType)){
             this.moveRight = false;
             this.moveLeft = true;

@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
+import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.actors.Actor;
 
 
@@ -9,7 +10,7 @@ public abstract class Enemy extends Actor {
         super(cell);
     }
     public abstract void moveEnemy();
-    protected abstract void moveFieldChecker(int position);
+    protected abstract void moveFieldChecker(int position, CellType floorType);
     protected abstract void makeMove(int position);
     protected String typeOfActor() {
         return "enemy";

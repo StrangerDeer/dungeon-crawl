@@ -68,13 +68,13 @@ public class Spell extends Enemy {
 
     @Override
     public void moveEnemy() {
-        moveFieldChecker(0);
+        moveFieldChecker(0, CellType.WALL);
         makeMove(0);
 
     }
 
     @Override
-    protected void moveFieldChecker(int position) {
+    protected void moveFieldChecker(int position, CellType wallType) {
         if (moveRight &&
                 getCell().getNeighbor(position + 1, 0).getType().equals(CellType.WALL)){
             this.exist = false;

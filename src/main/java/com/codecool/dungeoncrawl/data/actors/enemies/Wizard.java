@@ -8,10 +8,12 @@ public class Wizard extends Enemy {
 
     private int health = 25;
     private int position = 0;
-    private boolean moveUp = true;
-    private boolean moveLeft;
-    private boolean moveDown;
-    private boolean moveRight;
+    protected boolean moveUp = true;
+    protected boolean moveLeft;
+    protected boolean moveDown;
+    protected boolean moveRight;
+
+    private final CellType floorType = CellType.FLOOR;
     public Wizard(Cell cell) {
         super(cell);
     }
@@ -28,7 +30,7 @@ public class Wizard extends Enemy {
     private void seeDown(){
         int view = 1;
 
-        while(getCell().getNeighbor(0,view).getType().equals(CellType.FLOOR)){
+        while(getCell().getNeighbor(0,view).getType().equals(floorType)){
             if(checkPlayer(0,view)){
                 Spell spell = new Spell(getCell().getNeighbor(0,1),0,1);
                 getCell().addSpell(spell);
@@ -41,7 +43,7 @@ public class Wizard extends Enemy {
     private void seeUp(){
         int view = 1;
 
-        while(getCell().getNeighbor(0,- view).getType().equals(CellType.FLOOR)){
+        while(getCell().getNeighbor(0,- view).getType().equals(floorType)){
             if(checkPlayer(0, -view)){
                 Spell spell = new Spell(getCell().getNeighbor(0, -1),0,-1);
                 getCell().addSpell(spell);
@@ -53,7 +55,7 @@ public class Wizard extends Enemy {
     private void seeRight(){
         int view = 1;
 
-        while(getCell().getNeighbor(view,0).getType().equals(CellType.FLOOR)){
+        while(getCell().getNeighbor(view,0).getType().equals(floorType)){
             if(checkPlayer(view,0)){
                 Spell spell = new Spell(getCell().getNeighbor(1,0),1,0);
                 getCell().addSpell(spell);
@@ -65,7 +67,7 @@ public class Wizard extends Enemy {
     private void seeLeft(){
         int view = 1;
 
-        while(getCell().getNeighbor(- view,0).getType().equals(CellType.FLOOR)){
+        while(getCell().getNeighbor(- view,0).getType().equals(floorType)){
             if(checkPlayer(- view, 0)){
                 Spell spell = new Spell(getCell().getNeighbor(-1, 0),-1,0);
                 getCell().addSpell(spell);
@@ -111,28 +113,28 @@ public class Wizard extends Enemy {
     @Override
     public void moveEnemy() {
 
-        moveFieldChecker(position);
+        moveFieldChecker(position, floorType);
         makeMove(position);
         attackView();
 
     }
 
     @Override
-    protected void moveFieldChecker(int position) {
-        if(!getCell().getNeighbor(0, position - 1).getType().equals(CellType.FLOOR) &&
-                getCell().getNeighbor(position - 1, 0).getType().equals(CellType.FLOOR)){
+    protected void moveFieldChecker(int position, CellType floorType) {
+        if(!getCell().getNeighbor(0, position - 1).getType().equals(floorType) &&
+                getCell().getNeighbor(position - 1, 0).getType().equals(floorType)){
             moveUp = false;
             moveLeft = true;
-        }else if (!getCell().getNeighbor(position - 1, 0).getType().equals(CellType.FLOOR) &&
-                getCell().getNeighbor(0, position + 1).getType().equals(CellType.FLOOR)){
+        }else if (!getCell().getNeighbor(position - 1, 0).getType().equals(floorType) &&
+                getCell().getNeighbor(0, position + 1).getType().equals(floorType)){
             moveLeft = false;
             moveDown = true;
-        }else if (!getCell().getNeighbor(0, position + 1).getType().equals(CellType.FLOOR) &&
-                getCell().getNeighbor(position + 1, 0).getType().equals(CellType.FLOOR)){
+        }else if (!getCell().getNeighbor(0, position + 1).getType().equals(floorType) &&
+                getCell().getNeighbor(position + 1, 0).getType().equals(floorType)){
             moveDown = false;
             moveRight = true;
-        }else if(!getCell().getNeighbor(position + 1, 0).getType().equals(CellType.FLOOR) &&
-                getCell().getNeighbor(0, position - 1).getType().equals(CellType.FLOOR)){
+        }else if(!getCell().getNeighbor(position + 1, 0).getType().equals(floorType) &&
+                getCell().getNeighbor(0, position - 1).getType().equals(floorType)){
             moveRight = false;
             moveUp = true;
         }
