@@ -6,18 +6,12 @@ import com.codecool.dungeoncrawl.data.CellType;
 public class Spider extends Enemy {
     private static final String ENEMY_NAME = "spider";
     private static final int ENEMY_HEALTH = 5;
-    private int attack = 0;
+    private static final int ENEMY_ATTACK = 0;
 
 
     public Spider(Cell cell) {
-        super(cell, ENEMY_NAME, ENEMY_HEALTH);
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK);
     }
-
-    @Override
-    public int getAttackStrength() {
-        return attack;
-    }
-
 
     @Override
     public void moveEnemy() {

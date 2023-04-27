@@ -9,7 +9,7 @@ public class Giant extends Enemy {
     private static final String ENEMY_NAME = "giant";
     private static final int ENEMY_HEALTH = 40;
 
-    private int attack = 5;
+    private static final int ENEMY_ATTACK = 5;
 
     private int position = 0;
     private boolean moveUp = true;
@@ -19,17 +19,7 @@ public class Giant extends Enemy {
 
 
     public Giant(Cell cell) {
-        super(cell, ENEMY_NAME, ENEMY_HEALTH);
-    }
-
-    @Override
-    public int getAttackStrength() {
-        return attack;
-    }
-
-    @Override
-    public void addAttackStrength(int number) {
-
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK);
     }
 
     @Override

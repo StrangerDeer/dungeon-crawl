@@ -8,15 +8,14 @@ import com.codecool.dungeoncrawl.data.actors.Actor;
 public abstract class Enemy extends Actor {
 
     protected String name;
-
     protected int health;
-
-    protected int attack = 0;
-    public Enemy(Cell cell, String name, int health) {
+    protected int attack;
+    public Enemy(Cell cell, String name, int health, int attack) {
 
         super(cell);
         this.name = name;
         this.health = health;
+        this.attack = attack;
     }
     public abstract void moveEnemy();
     protected abstract void moveFieldChecker(int position, CellType floorType);

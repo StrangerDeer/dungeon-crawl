@@ -10,7 +10,7 @@ public class Skeleton extends Enemy {
 
     private static final int ENEMY_HEALTH = 20;
 
-    protected int attack = 1;
+    private static final int ENEMY_ATTACK = 1;
 
     private int position = 0;
 
@@ -19,12 +19,7 @@ public class Skeleton extends Enemy {
 
     private final CellType floorType = CellType.FLOOR;
     public Skeleton(Cell cell) {
-        super(cell, ENEMY_NAME, ENEMY_HEALTH);
-    }
-
-    @Override
-    public int getAttackStrength() {
-        return attack;
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK);
     }
 
     @Override

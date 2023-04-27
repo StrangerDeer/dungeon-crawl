@@ -8,6 +8,9 @@ public class Wizard extends Enemy {
     private static final String ENEMY_NAME = "wizard";
 
     private static final int ENEMY_HEALTH = 25;
+
+
+    private static final int ENEMY_ATTACK = 0;
     private int position = 0;
     protected boolean moveUp = true;
     protected boolean moveLeft;
@@ -16,11 +19,11 @@ public class Wizard extends Enemy {
 
     private final CellType floorType = CellType.FLOOR;
     public Wizard(Cell cell) {
-        super(cell, ENEMY_NAME, ENEMY_HEALTH);
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK);
     }
 
-    protected Wizard(Cell cell, String name, int health){
-        super(cell, name, health);
+    protected Wizard(Cell cell, String name, int health, int attack){
+        super(cell, name, health, attack);
     }
 
     private void attackView(){
@@ -88,11 +91,6 @@ public class Wizard extends Enemy {
             return true;
         };
         return false;
-    }
-
-    @Override
-    public int getAttackStrength() {
-        return 0;
     }
 
     @Override

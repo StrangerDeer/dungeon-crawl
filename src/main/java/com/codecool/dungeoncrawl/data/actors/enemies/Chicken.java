@@ -8,13 +8,13 @@ import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 public class Chicken extends Wizard {
     private static final String ENEMY_NAME = "chicken";
     private static final int ENEMY_HEALTH = 200;
-    protected int attack = 3;
+    private static final int ENEMY_ATTACK = 3;
 
     private final CellType floorType = CellType.GRASS;
 
 
     public Chicken(Cell cell) {
-        super(cell, ENEMY_NAME, ENEMY_HEALTH);
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK);
     }
 
     private void attackView(){
@@ -73,11 +73,6 @@ public class Chicken extends Wizard {
             };
             view++;
         }
-    }
-
-    @Override
-    public int getAttackStrength() {
-        return attack;
     }
 
     @Override
