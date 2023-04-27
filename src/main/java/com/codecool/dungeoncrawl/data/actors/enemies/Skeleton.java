@@ -14,6 +14,7 @@ public class Skeleton extends Enemy {
     private boolean moveRight = true;
     private boolean moveLeft;
 
+    private CellType floorType = CellType.FLOOR;
     public Skeleton(Cell cell) {
         super(cell);
     }
@@ -52,10 +53,10 @@ public class Skeleton extends Enemy {
 
     @Override
     protected void moveFieldChecker(int position){
-        if(!getCell().getNeighbor(position + 1, 0).getType().equals(CellType.FLOOR)){
+        if(!getCell().getNeighbor(position + 1, 0).getType().equals(floorType)){
             this.moveRight = false;
             this.moveLeft = true;
-        }else if (!getCell().getNeighbor(position - 1, 0).getType().equals(CellType.FLOOR)){
+        }else if (!getCell().getNeighbor(position - 1, 0).getType().equals(floorType)){
             this.moveRight = true;
             this.moveLeft = false;
         }
