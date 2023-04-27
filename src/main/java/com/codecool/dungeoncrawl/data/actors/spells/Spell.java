@@ -116,6 +116,7 @@ public class Spell extends Enemy {
             return "spell";
         }
         getCell().removeSpell(this);
+        getCell().setType(CellType.FLOOR);
         return "floor";
     }
 
