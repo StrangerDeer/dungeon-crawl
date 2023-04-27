@@ -15,6 +15,8 @@ public class Chicken extends Wizard {
     private boolean moveDown;
     private boolean moveRight;
 
+    private final CellType floorType = CellType.GRASS;
+
 
     public Chicken(Cell cell) {
         super(cell);
@@ -32,7 +34,7 @@ public class Chicken extends Wizard {
     private void seeDown(){
         int view = 1;
 
-        while(getCell().getNeighbor(0,view).getType().equals(CellType.GRASS)){
+        while(getCell().getNeighbor(0,view).getType().equals(floorType)){
             if(checkPlayer(0,view)){
                 ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(0,1),0,1);
                 getCell().addSpell(spell);
@@ -45,7 +47,7 @@ public class Chicken extends Wizard {
     private void seeUp(){
         int view = 1;
 
-        while(getCell().getNeighbor(0,- view).getType().equals(CellType.GRASS)){
+        while(getCell().getNeighbor(0,- view).getType().equals(floorType)){
             if(checkPlayer(0, -view)){
                 ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(0, -1),0,-1);
                 getCell().addSpell(spell);
@@ -57,7 +59,7 @@ public class Chicken extends Wizard {
     private void seeRight(){
         int view = 1;
 
-        while(getCell().getNeighbor(view,0).getType().equals(CellType.GRASS)){
+        while(getCell().getNeighbor(view,0).getType().equals(floorType)){
             if(checkPlayer(view,0)){
                 ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(1,0),1,0);
                 getCell().addSpell(spell);
@@ -69,22 +71,13 @@ public class Chicken extends Wizard {
     private void seeLeft(){
         int view = 1;
 
-        while(getCell().getNeighbor(- view,0).getType().equals(CellType.GRASS)){
+        while(getCell().getNeighbor(- view,0).getType().equals(floorType)){
             if(checkPlayer(- view, 0)){
                 ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(-1, 0),-1,0);
                 getCell().addSpell(spell);
             };
             view++;
         }
-    }
-
-    private boolean checkPlayer(int x, int y){
-        if(getCell().getNeighbor(x,y).getActor() != null &&
-                getCell().getNeighbor(x,y).getActor().getTileName().equals("player")&&
-                (y>1 || y<-1 || x>1 || x< -1)){
-            return true;
-        };
-        return false;
     }
 
 
@@ -123,20 +116,20 @@ public class Chicken extends Wizard {
     @Override
     protected void moveFieldChecker(int position) {
 
-        if(!getCell().getNeighbor(0, position - 1).getType().equals(CellType.GRASS) &&
-                getCell().getNeighbor(position - 1, 0).getType().equals(CellType.GRASS)){
+        if(!getCell().getNeighbor(0, position - 1).getType().equals(floorType) &&
+                getCell().getNeighbor(position - 1, 0).getType().equals(floorType)){
             moveUp = false;
             moveLeft = true;
-        }else if (!getCell().getNeighbor(position - 1, 0).getType().equals(CellType.GRASS) &&
-                getCell().getNeighbor(0, position + 1).getType().equals(CellType.GRASS)){
+        }else if (!getCell().getNeighbor(position - 1, 0).getType().equals(floorType) &&
+                getCell().getNeighbor(0, position + 1).getType().equals(floorType)){
             moveLeft = false;
             moveDown = true;
-        }else if (!getCell().getNeighbor(0, position + 1).getType().equals(CellType.GRASS) &&
-                getCell().getNeighbor(position + 1, 0).getType().equals(CellType.GRASS)){
+        }else if (!getCell().getNeighbor(0, position + 1).getType().equals(floorType) &&
+                getCell().getNeighbor(position + 1, 0).getType().equals(floorType)){
             moveDown = false;
             moveRight = true;
-        }else if(!getCell().getNeighbor(position + 1, 0).getType().equals(CellType.GRASS) &&
-                getCell().getNeighbor(0, position - 1).getType().equals(CellType.GRASS)){
+        }else if(!getCell().getNeighbor(position + 1, 0).getType().equals(floorType) &&
+                getCell().getNeighbor(0, position - 1).getType().equals(floorType)){
             moveRight = false;
             moveUp = true;
         }

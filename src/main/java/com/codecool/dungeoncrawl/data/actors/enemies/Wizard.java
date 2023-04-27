@@ -74,7 +74,7 @@ public class Wizard extends Enemy {
         }
     }
 
-    private boolean checkPlayer(int x, int y){
+    protected boolean checkPlayer(int x, int y){
         if(getCell().getNeighbor(x,y).getActor() != null &&
                 getCell().getNeighbor(x,y).getActor().getTileName().equals("player")&&
                     (y>1 || y<-1 || x>1 || x< -1)){
