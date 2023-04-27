@@ -10,16 +10,88 @@ public abstract class Enemy extends Actor {
     protected String name;
     protected int health;
     protected int attack;
-    public Enemy(Cell cell, String name, int health, int attack) {
+
+    protected CellType floorType;
+    public Enemy(Cell cell, String name, int health, int attack, CellType floorType) {
 
         super(cell);
         this.name = name;
         this.health = health;
         this.attack = attack;
+        this.floorType = floorType;
     }
     public abstract void moveEnemy();
     protected abstract void moveFieldChecker(int position, CellType floorType);
     protected abstract void makeMove(int position);
+
+    protected void castSpell(int x, int y){};
+
+    protected void attackView(){
+
+        if(seeDown(floorType)){
+            castSpell(0,1);
+        }else if (seeUp(floorType)){
+            castSpell(0, -1);
+        } else if(seeRight(floorType)){
+            castSpell(1,0);
+        }else if(seeLeft(floorType)){
+            castSpell(-1,0);
+        };
+
+    }
+
+    protected boolean seeDown(CellType floorType){
+        int view = 1;
+
+        while(cell.getNeighbor(0,view).getType().equals(floorType)){
+            if(isPlayerInSight(0,view)){
+                return true;
+            };
+            view++;
+        }
+
+        return false;
+    }
+
+    protected boolean seeUp(CellType floorType){
+
+        int view = 1;
+
+        while(cell.getNeighbor(0,- view).getType().equals(floorType)){
+            if(isPlayerInSight(0, -view)){
+                return true;
+            };
+            view++;
+        }
+
+        return false;
+    }
+
+    protected boolean seeRight(CellType floorType){
+
+        int view = 1;
+
+        while(cell.getNeighbor(view,0).getType().equals(floorType)){
+            if(isPlayerInSight(view,0)){
+                return true;
+            };
+            view++;
+        }
+
+        return false;
+    }
+
+    protected boolean seeLeft(CellType floorType){
+        int view = 1;
+        while(cell.getNeighbor(- view,0).getType().equals(floorType)){
+            if(isPlayerInSight(- view, 0)){
+                return true;
+            };
+            view++;
+        }
+
+        return false;
+    }
 
     @Override
     public int getHealth() {

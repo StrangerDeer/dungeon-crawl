@@ -11,90 +11,31 @@ public class Wizard extends Enemy {
 
 
     private static final int ENEMY_ATTACK = 0;
+    private static final CellType ENEMY_FLOOR_TYPE = CellType.FLOOR;
     private int position = 0;
     protected boolean moveUp = true;
     protected boolean moveLeft;
     protected boolean moveDown;
     protected boolean moveRight;
 
-    protected final CellType floorType;
+    protected final CellType typeOfFloor = CellType.FLOOR;;
 
     public Wizard(Cell cell) {
-        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK);
-        this.floorType = CellType.FLOOR;
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK, ENEMY_FLOOR_TYPE);
     }
     protected Wizard(Cell cell, String name, int health, int attack, CellType floorType){
-        super(cell, name, health, attack);
-        this.floorType = floorType;
+        super(cell, name, health, attack, floorType);
     }
-
+    @Override
     protected void castSpell(int x, int y){
         Spell spell = new Spell(cell.getNeighbor(x,y),x,y);
         cell.addSpell(spell);
     }
 
-    protected void attackView(){
-
-        seeDown();
-        seeUp();
-        seeRight();
-        seeLeft();
-
-    }
-
-    protected void seeDown(){
-        int view = 1;
-
-        while(cell.getNeighbor(0,view).getType().equals(floorType)){
-            if(isPlayerInSight(0,view)){
-                castSpell(0,1);
-            };
-            view++;
-        }
-
-    }
-
-    protected void seeUp(){
-        int view = 1;
-
-        while(cell.getNeighbor(0,- view).getType().equals(floorType)){
-            if(isPlayerInSight(0, -view)){
-                castSpell(0,-1);
-            };
-            view++;
-        }
-    }
-
-    protected void seeRight(){
-        int view = 1;
-
-        while(cell.getNeighbor(view,0).getType().equals(floorType)){
-            if(isPlayerInSight(view,0)){
-                castSpell(1,0);
-            };
-            view++;
-        }
-    }
-
-    protected void seeLeft(){
-        int view = 1;
-
-        while(cell.getNeighbor(- view,0).getType().equals(floorType)){
-            if(isPlayerInSight(- view, 0)){
-                castSpell(-1,0);
-            };
-            view++;
-        }
-    }
-
-   /* protected boolean checkPlayer(int x, int y){
-
-    }*/
-
     @Override
     public void moveEnemy() {
 
-        moveFieldChecker(position, floorType);
+        moveFieldChecker(position, typeOfFloor);
         makeMove(position);
         attackView();
 

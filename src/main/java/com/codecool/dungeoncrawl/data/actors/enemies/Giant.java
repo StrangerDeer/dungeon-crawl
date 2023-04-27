@@ -2,7 +2,6 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
-import com.codecool.dungeoncrawl.data.GameMap;
 
 public class Giant extends Enemy {
 
@@ -11,21 +10,23 @@ public class Giant extends Enemy {
 
     private static final int ENEMY_ATTACK = 5;
 
+    private static final CellType ENEMY_FLOOR_TYPE = CellType.FLOOR;
+
     private int position = 0;
     private boolean moveUp = true;
     private boolean moveDown;
 
-    private CellType floorType = CellType.FLOOR;
+    private final CellType floorTypeforMove = CellType.FLOOR;
 
 
     public Giant(Cell cell) {
-        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK);
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK, ENEMY_FLOOR_TYPE);
     }
 
     @Override
     public void moveEnemy() {
 
-        moveFieldChecker(position, floorType);
+        moveFieldChecker(position, floorTypeforMove);
         makeMove(position);
     }
     @Override

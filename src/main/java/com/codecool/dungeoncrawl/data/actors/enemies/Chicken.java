@@ -3,7 +3,6 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.actors.spells.ChickenSpell;
-import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 
 public class Chicken extends Wizard {
     private static final String ENEMY_NAME = "chicken";
@@ -25,7 +24,7 @@ public class Chicken extends Wizard {
 
     @Override
     public void moveEnemy() {
-        moveFieldChecker(0, floorType);
+        moveFieldChecker(0, typeOfFloor);
         makeMove(0);
         attackView();
     }
