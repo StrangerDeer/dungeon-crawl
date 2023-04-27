@@ -4,23 +4,13 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 
 public class Spider extends Enemy {
-
-    private int health = 5;
+    private static final String ENEMY_NAME = "spider";
+    private static final int ENEMY_HEALTH = 5;
     private int attack = 0;
 
 
     public Spider(Cell cell) {
-        super(cell);
-    }
-
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int number) {
-        this.health = number;
+        super(cell, ENEMY_NAME, ENEMY_HEALTH);
     }
 
     @Override
@@ -41,15 +31,5 @@ public class Spider extends Enemy {
     @Override
     protected void makeMove(int position) {
 
-    }
-
-    @Override
-    public String getTileName() {
-
-        if(health <= 0){
-            return "floor";
-        }
-
-        return "spider";
     }
 }

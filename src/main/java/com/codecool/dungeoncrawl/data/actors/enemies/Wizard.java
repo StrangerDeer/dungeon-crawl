@@ -5,8 +5,9 @@ import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 
 public class Wizard extends Enemy {
+    private static final String ENEMY_NAME = "wizard";
 
-    private int health = 25;
+    private static final int ENEMY_HEALTH = 25;
     private int position = 0;
     protected boolean moveUp = true;
     protected boolean moveLeft;
@@ -15,7 +16,11 @@ public class Wizard extends Enemy {
 
     private final CellType floorType = CellType.FLOOR;
     public Wizard(Cell cell) {
-        super(cell);
+        super(cell, ENEMY_NAME, ENEMY_HEALTH);
+    }
+
+    protected Wizard(Cell cell, String name, int health){
+        super(cell, name, health);
     }
 
     private void attackView(){
@@ -86,16 +91,6 @@ public class Wizard extends Enemy {
     }
 
     @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int number) {
-        this.health = number;
-    }
-
-    @Override
     public int getAttackStrength() {
         return 0;
     }
@@ -147,12 +142,4 @@ public class Wizard extends Enemy {
         }
     }
 
-    @Override
-    public String getTileName() {
-
-        if(health <= 0){
-            return "floor";
-        }
-        return "wizard";
-    }
 }

@@ -7,11 +7,16 @@ import com.codecool.dungeoncrawl.data.actors.Actor;
 
 public abstract class Enemy extends Actor {
 
-    protected int health = 0;
+    protected String name;
+
+    protected int health;
 
     protected int attack = 0;
-    public Enemy(Cell cell) {
+    public Enemy(Cell cell, String name, int health) {
+
         super(cell);
+        this.name = name;
+        this.health = health;
     }
     public abstract void moveEnemy();
     protected abstract void moveFieldChecker(int position, CellType floorType);
@@ -40,6 +45,16 @@ public abstract class Enemy extends Actor {
     @Override
     public void addAttackStrength(int number) {
 
+    }
+
+    @Override
+    public String getTileName() {
+
+        if(health <= 0){
+            return "floor";
+        }
+
+        return name;
     }
 
     protected String typeOfActor() {

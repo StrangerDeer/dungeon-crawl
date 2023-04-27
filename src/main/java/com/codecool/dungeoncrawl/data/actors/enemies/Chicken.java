@@ -6,16 +6,15 @@ import com.codecool.dungeoncrawl.data.actors.spells.ChickenSpell;
 import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 
 public class Chicken extends Wizard {
-
-    protected int health = 200;
-
+    private static final String ENEMY_NAME = "chicken";
+    private static final int ENEMY_HEALTH = 200;
     protected int attack = 3;
 
     private final CellType floorType = CellType.GRASS;
 
 
     public Chicken(Cell cell) {
-        super(cell);
+        super(cell, ENEMY_NAME, ENEMY_HEALTH);
     }
 
     private void attackView(){
@@ -76,17 +75,6 @@ public class Chicken extends Wizard {
         }
     }
 
-
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int number) {
-        this.health = number;
-    }
-
     @Override
     public int getAttackStrength() {
         return attack;
@@ -115,13 +103,4 @@ public class Chicken extends Wizard {
         }
     }
 
-    @Override
-    public String getTileName() {
-
-        if (health <= 0) {
-            return "grass";
-        }
-
-        return "chicken";
-    }
 }

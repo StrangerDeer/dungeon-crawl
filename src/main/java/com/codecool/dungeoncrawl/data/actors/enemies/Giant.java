@@ -6,7 +6,8 @@ import com.codecool.dungeoncrawl.data.GameMap;
 
 public class Giant extends Enemy {
 
-    private int health = 40;
+    private static final String ENEMY_NAME = "giant";
+    private static final int ENEMY_HEALTH = 40;
 
     private int attack = 5;
 
@@ -18,23 +19,7 @@ public class Giant extends Enemy {
 
 
     public Giant(Cell cell) {
-        super(cell);
-    }
-
-
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int number) {
-        this.health = number;
-    }
-
-    @Override
-    public void addHealthPoints(int number) {
-
+        super(cell, ENEMY_NAME, ENEMY_HEALTH);
     }
 
     @Override
@@ -76,13 +61,4 @@ public class Giant extends Enemy {
         }
     }
 
-    @Override
-    public String getTileName() {
-
-        if(health <= 0){
-            return "floor";
-        }
-
-        return "giant";
-    }
 }

@@ -21,7 +21,7 @@ public class Spell extends Enemy {
     private int damage = 1;
 
     public Spell(Cell cell, int x, int y) {
-        super(cell);
+        super(cell, "spell", 1);
 
         if(x > 0){
             this.moveRight = true;
