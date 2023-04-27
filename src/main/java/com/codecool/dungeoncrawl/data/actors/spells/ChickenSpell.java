@@ -136,6 +136,7 @@ public class ChickenSpell extends Spell{
         }
 
         getCell().removeSpell(this);
+        getCell().setType(CellType.WATER);
         return "water";
     }
 }
