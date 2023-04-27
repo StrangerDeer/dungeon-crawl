@@ -13,7 +13,7 @@ public class ChickenSpell extends Spell{
 
     private boolean moveUp;
 
-    private int damage = 1;
+    private int damage = 5;
     public ChickenSpell(Cell cell, int x, int y) {
         super(cell, x, y);
 
@@ -136,6 +136,6 @@ public class ChickenSpell extends Spell{
         }
 
         getCell().removeSpell(this);
-        return "grass";
+        return "water";
     }
 }

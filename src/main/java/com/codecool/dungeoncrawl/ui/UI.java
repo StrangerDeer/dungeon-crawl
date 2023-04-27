@@ -70,7 +70,6 @@ public class UI {
 
             if (logic.getMap().getSpells().size() > 0) {
                 for (Spell spell : logic.getMap().getSpells()) {
-                    System.out.println(spell.getTileName());
                     spell.moveEnemy();
                 }
             }
