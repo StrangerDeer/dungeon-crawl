@@ -6,15 +6,16 @@ import com.codecool.dungeoncrawl.data.actors.Actor;
 
 public class Skeleton extends Enemy {
 
-    private int health = 20;
-    private int attack = 1;
+    protected int health = 20;
+
+    protected int attack = 1;
 
     private int position = 0;
 
     private boolean moveRight = true;
     private boolean moveLeft;
 
-    private CellType floorType = CellType.FLOOR;
+    private final CellType floorType = CellType.FLOOR;
     public Skeleton(Cell cell) {
         super(cell);
     }
@@ -26,24 +27,13 @@ public class Skeleton extends Enemy {
 
     @Override
     public void setHealth(int number) {
-        this.health = number;
-    }
-
-    @Override
-    public void addHealthPoints(int number) {
-
+        health = number;
     }
 
     @Override
     public int getAttackStrength() {
         return attack;
     }
-
-    @Override
-    public void addAttackStrength(int number) {
-
-    }
-
 
     @Override
     public void moveEnemy() {

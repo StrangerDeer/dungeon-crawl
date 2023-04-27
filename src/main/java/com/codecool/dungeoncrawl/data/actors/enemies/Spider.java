@@ -24,16 +24,8 @@ public class Spider extends Enemy {
     }
 
     @Override
-    public void addHealthPoints(int number) {
-    }
-
-    @Override
     public int getAttackStrength() {
         return attack;
-    }
-
-    @Override
-    public void addAttackStrength(int number) {
     }
 
 

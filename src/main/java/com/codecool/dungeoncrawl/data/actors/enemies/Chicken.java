@@ -7,9 +7,9 @@ import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 
 public class Chicken extends Wizard {
 
-    private int health = 200;
+    protected int health = 200;
 
-    private int attack = 3;
+    protected int attack = 3;
 
     private final CellType floorType = CellType.GRASS;
 
@@ -88,18 +88,8 @@ public class Chicken extends Wizard {
     }
 
     @Override
-    public void addHealthPoints(int number) {
-
-    }
-
-    @Override
     public int getAttackStrength() {
         return attack;
-    }
-
-    @Override
-    public void addAttackStrength(int number) {
-
     }
 
     @Override
