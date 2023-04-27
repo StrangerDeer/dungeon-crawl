@@ -3,6 +3,7 @@ package com.codecool.dungeoncrawl.logic;
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 import com.codecool.dungeoncrawl.data.GameMap;
+import com.codecool.dungeoncrawl.data.actors.spells.ChickenSpell;
 import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 import com.codecool.dungeoncrawl.data.actors.enemies.*;
 import com.codecool.dungeoncrawl.data.items.*;
@@ -97,6 +98,10 @@ public class MapLoader {
                         case 'C':
                             cell.setType(CellType.GRASS);
                             map.addEnemy(new Chicken(cell));
+                            break;
+                        case '%':
+                            cell.setType(CellType.GRASS);
+                            cell.setActor(new ChickenSpell(cell,0,0));
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");

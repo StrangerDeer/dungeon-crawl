@@ -2,13 +2,8 @@ package com.codecool.dungeoncrawl.data.actors.spells;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
-import com.codecool.dungeoncrawl.data.actors.Actor;
-import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Spell extends Enemy {
+public class ChickenSpell extends Spell{
 
     private boolean exist;
 
@@ -18,10 +13,9 @@ public class Spell extends Enemy {
 
     private boolean moveUp;
 
-    private int damage = 1;
-
-    public Spell(Cell cell, int x, int y) {
-        super(cell);
+    private int damage = 5;
+    public ChickenSpell(Cell cell, int x, int y) {
+        super(cell, x, y);
 
         if(x > 0){
             this.moveRight = true;
@@ -76,16 +70,16 @@ public class Spell extends Enemy {
     @Override
     protected void moveFieldChecker(int position) {
         if (moveRight &&
-                getCell().getNeighbor(position + 1, 0).getType().equals(CellType.WALL)){
+                !getCell().getNeighbor(position + 1, 0).getType().equals(CellType.GRASS)){
             this.exist = false;
         }else if(moveDown &&
-                getCell().getNeighbor(0, position + 1).getType().equals(CellType.WALL)){
+                !getCell().getNeighbor(0, position + 1).getType().equals(CellType.GRASS)){
             this.exist = false;
         }else if(moveUp &&
-                getCell().getNeighbor(0, position - 1).getType().equals(CellType.WALL)){
+                !getCell().getNeighbor(0, position - 1).getType().equals(CellType.GRASS)){
             this.exist = false;
         }else if(moveLeft &&
-                getCell().getNeighbor(position - 1, 0).getType().equals(CellType.WALL)){
+                !getCell().getNeighbor(position - 1, 0).getType().equals(CellType.GRASS)){
             this.exist = false;
         }
 
@@ -107,17 +101,6 @@ public class Spell extends Enemy {
             position--;
             move(position, 0);
         }
-    }
-
-    @Override
-    public String getTileName() {
-
-        if(exist){
-            return "spell";
-        }
-        getCell().removeSpell(this);
-        getCell().setType(CellType.FLOOR);
-        return "floor";
     }
 
     @Override
@@ -145,8 +128,15 @@ public class Spell extends Enemy {
 
     }
 
-   @Override
-    protected String typeOfActor() {
-        return "spell";
+    @Override
+    public String getTileName() {
+
+        if(exist){
+            return "chicken_spell";
+        }
+
+        getCell().removeSpell(this);
+        getCell().setType(CellType.WATER);
+        return "water";
     }
 }

@@ -7,8 +7,8 @@ import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 public class Wizard extends Enemy {
 
     private int health = 25;
-    private boolean moveUp = true;
     private int position = 0;
+    private boolean moveUp = true;
     private boolean moveLeft;
     private boolean moveDown;
     private boolean moveRight;
