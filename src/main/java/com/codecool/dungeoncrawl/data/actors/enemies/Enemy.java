@@ -10,7 +10,6 @@ public abstract class Enemy extends Actor {
     protected String name;
     protected int health;
     protected int attack;
-
     protected CellType floorType;
     public Enemy(Cell cell, String name, int health, int attack, CellType floorType) {
 

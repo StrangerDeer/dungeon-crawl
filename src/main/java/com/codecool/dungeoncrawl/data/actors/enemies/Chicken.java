@@ -24,7 +24,7 @@ public class Chicken extends Wizard {
 
     @Override
     public void moveEnemy() {
-        moveFieldChecker(0, typeOfFloor);
+        moveFieldChecker(0, ENEMY_FLOOR_TYPE);
         makeMove(0);
         attackView();
     }

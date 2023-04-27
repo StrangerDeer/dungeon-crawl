@@ -25,6 +25,7 @@ public class Wizard extends Enemy {
     }
     protected Wizard(Cell cell, String name, int health, int attack, CellType floorType){
         super(cell, name, health, attack, floorType);
+        this.floorType = floorType;
     }
     @Override
     protected void castSpell(int x, int y){
