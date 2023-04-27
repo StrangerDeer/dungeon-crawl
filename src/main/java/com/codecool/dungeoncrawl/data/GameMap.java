@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl.data;
 
 import com.codecool.dungeoncrawl.data.actors.Player;
+import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 import com.codecool.dungeoncrawl.data.actors.enemies.*;
 
 import java.util.ArrayList;
@@ -20,8 +21,10 @@ public class GameMap {
     private Wizard wizard;
 
     private Chicken chicken;
-
+    
     private final List<Enemy> enemies = new ArrayList<>();
+
+    private List<Spell> spells = new ArrayList<>();
 
     public GameMap(int width, int height, CellType defaultCellType) {
         this.width = width;
@@ -33,6 +36,7 @@ public class GameMap {
             }
         }
     }
+
 
     public Cell getCell(int x, int y) {
         return cells[x][y];
@@ -50,8 +54,15 @@ public class GameMap {
         return enemies;
     }
 
-    public Wizard getWizard() {
-        return wizard;
+    public void addSpell(Spell spell){
+        spells.add(spell);
+    };
+
+    public List<Spell> getSpells(){
+        return spells;
+    }
+    public void removeSpell(Spell spell){
+        spells.remove(spell);
     }
 
     public Player getPlayer() {

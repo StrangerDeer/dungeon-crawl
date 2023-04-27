@@ -9,6 +9,8 @@ public class Skeleton extends Enemy {
     private int health = 20;
     private int attack = 1;
 
+    private int position = 0;
+
     private boolean moveRight = true;
     private boolean moveLeft;
 
@@ -43,7 +45,7 @@ public class Skeleton extends Enemy {
 
 
     @Override
-    public void moveEnemy(int position) {
+    public void moveEnemy() {
         moveFieldChecker(position);
         makeMove(position);
     }

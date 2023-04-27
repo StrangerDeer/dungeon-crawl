@@ -9,6 +9,8 @@ public class Giant extends Enemy {
     private int health = 40;
 
     private int attack = 5;
+
+    private int position = 0;
     private boolean moveUp = true;
     private boolean moveDown;
 
@@ -44,7 +46,7 @@ public class Giant extends Enemy {
     }
 
     @Override
-    public void moveEnemy(int position) {
+    public void moveEnemy() {
 
         moveFieldChecker(position);
         makeMove(position);

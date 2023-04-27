@@ -2,6 +2,7 @@ package com.codecool.dungeoncrawl.ui;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
+import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 import com.codecool.dungeoncrawl.logic.GameLogic;
 import com.codecool.dungeoncrawl.ui.elements.MainStage;
 import com.codecool.dungeoncrawl.ui.keyeventhandler.KeyHandler;
@@ -44,23 +45,35 @@ public class UI {
             keyHandler.perform(keyEvent, logic.getMap());
         }
         enemiesMoves();
+        spellsMove();
         refresh();
     }
 
     private void enemiesMoves(){
 
-
         for (Enemy enemy : logic.getMap().getEnemies()){
             if(enemy.getTileName().equals("skeleton")){
-                enemy.moveEnemy(0);
+                enemy.moveEnemy();
             }else if(enemy.getTileName().equals("giant")){
-                enemy.moveEnemy(0);
+                enemy.moveEnemy();
             } else if (enemy.getTileName().equals("wizard")) {
-                enemy.moveEnemy(0);
+                enemy.moveEnemy();
             } else if (enemy.getTileName().equals("chicken")) {
-                enemy.moveEnemy(0);
+                enemy.moveEnemy();
             }
         }
+    }
+
+    private void spellsMove(){
+
+
+            if (logic.getMap().getSpells().size() > 0) {
+                for (Spell spell : logic.getMap().getSpells()) {
+
+                    spell.moveEnemy();
+                }
+            }
+
     }
 
     public void refresh() {

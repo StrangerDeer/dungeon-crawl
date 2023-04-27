@@ -37,6 +37,7 @@ public class Tiles {
         tileMap.put("door_open", new Tile(4, 4));
         tileMap.put("giant", new Tile(30, 6));
         tileMap.put("wizard", new Tile(25, 6));
+        tileMap.put("spell", new Tile(20, 23));
         tileMap.put("spider", new Tile(28, 5));
         tileMap.put("Cheesy cheese", new Tile(18, 28));
         tileMap.put("grass", new Tile(5, 0));

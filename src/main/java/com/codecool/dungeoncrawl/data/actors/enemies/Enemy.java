@@ -8,11 +8,9 @@ public abstract class Enemy extends Actor {
     public Enemy(Cell cell) {
         super(cell);
     }
-    public abstract void moveEnemy(int position);
+    public abstract void moveEnemy();
     protected abstract void moveFieldChecker(int position);
     protected abstract void makeMove(int position);
-
-    @Override
     protected String typeOfActor() {
         return "enemy";
     }

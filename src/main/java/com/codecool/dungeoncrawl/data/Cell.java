@@ -1,7 +1,11 @@
 package com.codecool.dungeoncrawl.data;
 
 import com.codecool.dungeoncrawl.data.actors.Actor;
+import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 import com.codecool.dungeoncrawl.data.items.Item;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cell implements Drawable {
     private CellType type;
@@ -10,11 +14,24 @@ public class Cell implements Drawable {
     private GameMap gameMap;
     private int x, y;
 
+    private List<Spell> spells = new ArrayList<>();
+
     public Cell(GameMap gameMap, int x, int y, CellType type) {
         this.gameMap = gameMap;
         this.x = x;
         this.y = y;
         this.type = type;
+    }
+
+    public void addSpell(Spell spell){
+        gameMap.addSpell(spell);
+    }
+
+    public void removeSpell(Spell spell){
+        gameMap.removeSpell(spell);
+    }
+    public List<Spell> getSpells(){
+        return this.spells;
     }
 
     public CellType getType() {
