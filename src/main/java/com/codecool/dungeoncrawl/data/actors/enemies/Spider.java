@@ -4,60 +4,27 @@ import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
 
 public class Spider extends Enemy {
-
-    private int health = 5;
-    private int attack = 0;
+    private static final String ENEMY_NAME = "spider";
+    private static final int ENEMY_HEALTH = 5;
+    private static final int ENEMY_ATTACK = 0;
+    private static final CellType ENEMY_FLOOR_TYPE = CellType.FLOOR;
 
 
     public Spider(Cell cell) {
-        super(cell);
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK, ENEMY_FLOOR_TYPE);
     }
-
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int number) {
-        this.health = number;
-    }
-
-    @Override
-    public void addHealthPoints(int number) {
-    }
-
-    @Override
-    public int getAttackStrength() {
-        return attack;
-    }
-
-    @Override
-    public void addAttackStrength(int number) {
-    }
-
 
     @Override
     public void moveEnemy() {
     }
 
     @Override
-    protected void moveFieldChecker(int position){
+    protected void moveFieldChecker(int position, CellType floorType){
 
     }
 
     @Override
     protected void makeMove(int position) {
 
-    }
-
-    @Override
-    public String getTileName() {
-
-        if(health <= 0){
-            return "floor";
-        }
-
-        return "spider";
     }
 }

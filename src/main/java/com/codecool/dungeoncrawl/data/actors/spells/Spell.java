@@ -21,7 +21,7 @@ public class Spell extends Enemy {
     private int damage = 1;
 
     public Spell(Cell cell, int x, int y) {
-        super(cell);
+        super(cell, "spell", 1, 1, null);
 
         if(x > 0){
             this.moveRight = true;
@@ -68,13 +68,13 @@ public class Spell extends Enemy {
 
     @Override
     public void moveEnemy() {
-        moveFieldChecker(0);
+        moveFieldChecker(0, CellType.WALL);
         makeMove(0);
 
     }
 
     @Override
-    protected void moveFieldChecker(int position) {
+    protected void moveFieldChecker(int position, CellType wallType) {
         if (moveRight &&
                 getCell().getNeighbor(position + 1, 0).getType().equals(CellType.WALL)){
             this.exist = false;
@@ -118,31 +118,6 @@ public class Spell extends Enemy {
         getCell().removeSpell(this);
         getCell().setType(CellType.FLOOR);
         return "floor";
-    }
-
-    @Override
-    public int getHealth() {
-        return 0;
-    }
-
-    @Override
-    public void setHealth(int number) {
-
-    }
-
-    @Override
-    public void addHealthPoints(int number) {
-
-    }
-
-    @Override
-    public int getAttackStrength() {
-        return 0;
-    }
-
-    @Override
-    public void addAttackStrength(int number) {
-
     }
 
    @Override

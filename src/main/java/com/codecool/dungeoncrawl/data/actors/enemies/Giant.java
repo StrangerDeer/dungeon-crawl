@@ -2,62 +2,40 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
-import com.codecool.dungeoncrawl.data.GameMap;
 
 public class Giant extends Enemy {
 
-    private int health = 40;
+    private static final String ENEMY_NAME = "giant";
+    private static final int ENEMY_HEALTH = 40;
 
-    private int attack = 5;
+    private static final int ENEMY_ATTACK = 5;
+
+    private static final CellType ENEMY_FLOOR_TYPE = CellType.FLOOR;
 
     private int position = 0;
     private boolean moveUp = true;
     private boolean moveDown;
 
+    private final CellType floorTypeforMove = CellType.FLOOR;
+
 
     public Giant(Cell cell) {
-        super(cell);
-    }
-
-
-    @Override
-    public int getHealth() {
-        return health;
-    }
-
-    @Override
-    public void setHealth(int number) {
-        this.health = number;
-    }
-
-    @Override
-    public void addHealthPoints(int number) {
-
-    }
-
-    @Override
-    public int getAttackStrength() {
-        return attack;
-    }
-
-    @Override
-    public void addAttackStrength(int number) {
-
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK, ENEMY_FLOOR_TYPE);
     }
 
     @Override
     public void moveEnemy() {
 
-        moveFieldChecker(position);
+        moveFieldChecker(position, floorTypeforMove);
         makeMove(position);
     }
     @Override
-    protected void moveFieldChecker(int position) {
+    protected void moveFieldChecker(int position, CellType floorType) {
 
-        if(!getCell().getNeighbor(0, position + 1).getType().equals(CellType.FLOOR)){
+        if(!getCell().getNeighbor(0, position + 1).getType().equals(floorType)){
             this.moveUp = false;
             this.moveDown = true;
-        }else if (!getCell().getNeighbor(0, position - 1).getType().equals(CellType.FLOOR)){
+        }else if (!getCell().getNeighbor(0, position - 1).getType().equals(floorType)){
             this.moveUp = true;
             this.moveDown = false;
         }
@@ -74,13 +52,4 @@ public class Giant extends Enemy {
         }
     }
 
-    @Override
-    public String getTileName() {
-
-        if(health <= 0){
-            return "floor";
-        }
-
-        return "giant";
-    }
 }

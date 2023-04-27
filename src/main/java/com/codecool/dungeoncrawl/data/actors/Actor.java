@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Actor implements Drawable {
-    private Cell cell;
+    protected Cell cell;
 
     private boolean hasKey = false;
 
@@ -37,6 +37,15 @@ public abstract class Actor implements Drawable {
         if (nextCell.getType().equals(CellType.DOOR_CLOSED)) {
             openDoorIfPlayerHasKey(nextCell);
         }
+    }
+
+    protected boolean isPlayerInSight(int x, int y){
+        if(cell.getNeighbor(x,y).getActor() != null &&
+                cell.getNeighbor(x,y).getActor().getTileName().equals("player")&&
+                (y>1 || y<-1 || x>1 || x< -1)){
+            return true;
+        };
+        return false;
     }
 
     private void openDoorIfPlayerHasKey(Cell nextCell) {
