@@ -10,69 +10,17 @@ public class Chicken extends Wizard {
     private static final int ENEMY_HEALTH = 200;
     private static final int ENEMY_ATTACK = 3;
 
-    private final CellType floorType = CellType.GRASS;
+    private static final CellType ENEMY_FLOOR_TYPE = CellType.GRASS;
 
 
     public Chicken(Cell cell) {
-        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK);
+        super(cell, ENEMY_NAME, ENEMY_HEALTH, ENEMY_ATTACK, ENEMY_FLOOR_TYPE);
     }
 
-    private void attackView(){
-
-        seeDown();
-        seeUp();
-        seeRight();
-        seeLeft();
-
-    }
-
-    private void seeDown(){
-        int view = 1;
-
-        while(getCell().getNeighbor(0,view).getType().equals(floorType)){
-            if(checkPlayer(0,view)){
-                ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(0,1),0,1);
-                getCell().addSpell(spell);
-            };
-            view++;
-        }
-
-    }
-
-    private void seeUp(){
-        int view = 1;
-
-        while(getCell().getNeighbor(0,- view).getType().equals(floorType)){
-            if(checkPlayer(0, -view)){
-                ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(0, -1),0,-1);
-                getCell().addSpell(spell);
-            };
-            view++;
-        }
-    }
-
-    private void seeRight(){
-        int view = 1;
-
-        while(getCell().getNeighbor(view,0).getType().equals(floorType)){
-            if(checkPlayer(view,0)){
-                ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(1,0),1,0);
-                getCell().addSpell(spell);
-            };
-            view++;
-        }
-    }
-
-    private void seeLeft(){
-        int view = 1;
-
-        while(getCell().getNeighbor(- view,0).getType().equals(floorType)){
-            if(checkPlayer(- view, 0)){
-                ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(-1, 0),-1,0);
-                getCell().addSpell(spell);
-            };
-            view++;
-        }
+    @Override
+    protected void castSpell(int x, int y){
+        ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(x,y),x,y);
+        getCell().addSpell(spell);
     }
 
     @Override

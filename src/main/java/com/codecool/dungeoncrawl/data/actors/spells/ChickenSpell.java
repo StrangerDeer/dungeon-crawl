@@ -34,28 +34,28 @@ public class ChickenSpell extends Spell{
 
     private void dealPlayerDamage(int position){
         if(moveRight &&
-                getCell().getNeighbor(position + 1, 0).getActor() != null &&
-                getCell().getNeighbor(position + 1, 0).getActor().getTileName().equals("player") ){
-            getCell().getNeighbor(position + 1, 0).getActor().setHealth(
-                    getCell().getNeighbor(position + 1, 0).getActor().getHealth() - damage);
+                cell.getNeighbor(position + 1, 0).getActor() != null &&
+                cell.getNeighbor(position + 1, 0).getActor().getTileName().equals("player") ){
+            cell.getNeighbor(position + 1, 0).getActor().setHealth(
+                    cell.getNeighbor(position + 1, 0).getActor().getHealth() - damage);
             this.exist = false;
         }else if((moveDown &&
-                getCell().getNeighbor(0, position + 1).getActor() != null &&
-                getCell().getNeighbor(0, position + 1).getActor().getTileName().equals("player") )){
-            getCell().getNeighbor(0, position + 1).getActor().setHealth(
-                    getCell().getNeighbor(0, position + 1).getActor().getHealth() - damage);
+                cell.getNeighbor(0, position + 1).getActor() != null &&
+                cell.getNeighbor(0, position + 1).getActor().getTileName().equals("player") )){
+            cell.getNeighbor(0, position + 1).getActor().setHealth(
+                    cell.getNeighbor(0, position + 1).getActor().getHealth() - damage);
             this.exist = false;
         }else if(moveUp &&
-                getCell().getNeighbor(0, position - 1).getActor() != null &&
-                getCell().getNeighbor(0, position - 1).getActor().getTileName().equals("player")){
-            getCell().getNeighbor(0, position - 1).getActor().setHealth(
-                    getCell().getNeighbor(0, position - 1).getActor().getHealth() - damage);
+                cell.getNeighbor(0, position - 1).getActor() != null &&
+                cell.getNeighbor(0, position - 1).getActor().getTileName().equals("player")){
+            cell.getNeighbor(0, position - 1).getActor().setHealth(
+                    cell.getNeighbor(0, position - 1).getActor().getHealth() - damage);
             this.exist = false;
         }else if(moveLeft &&
-                getCell().getNeighbor(position - 1, 0).getActor() != null &&
-                getCell().getNeighbor(position - 1, 0).getActor().getTileName().equals("player") ){
-            getCell().getNeighbor(position - 1, 0).getActor().setHealth(
-                    getCell().getNeighbor(position - 1, 0).getActor().getHealth() - damage);
+                cell.getNeighbor(position - 1, 0).getActor() != null &&
+                cell.getNeighbor(position - 1, 0).getActor().getTileName().equals("player") ){
+            cell.getNeighbor(position - 1, 0).getActor().setHealth(
+                    cell.getNeighbor(position - 1, 0).getActor().getHealth() - damage);
             this.exist = false;
         }
     }
@@ -70,16 +70,16 @@ public class ChickenSpell extends Spell{
     @Override
     protected void moveFieldChecker(int position, CellType floorType) {
         if (moveRight &&
-                !getCell().getNeighbor(position + 1, 0).getType().equals(CellType.GRASS)){
+                !cell.getNeighbor(position + 1, 0).getType().equals(CellType.GRASS)){
             this.exist = false;
         }else if(moveDown &&
-                !getCell().getNeighbor(0, position + 1).getType().equals(CellType.GRASS)){
+                !cell.getNeighbor(0, position + 1).getType().equals(CellType.GRASS)){
             this.exist = false;
         }else if(moveUp &&
-                !getCell().getNeighbor(0, position - 1).getType().equals(CellType.GRASS)){
+                !cell.getNeighbor(0, position - 1).getType().equals(CellType.GRASS)){
             this.exist = false;
         }else if(moveLeft &&
-                !getCell().getNeighbor(position - 1, 0).getType().equals(CellType.GRASS)){
+                !cell.getNeighbor(position - 1, 0).getType().equals(CellType.GRASS)){
             this.exist = false;
         }
 
@@ -135,8 +135,8 @@ public class ChickenSpell extends Spell{
             return "chicken_spell";
         }
 
-        getCell().removeSpell(this);
-        getCell().setType(CellType.WATER);
+        cell.removeSpell(this);
+        cell.setType(CellType.WATER);
         return "water";
     }
 }
