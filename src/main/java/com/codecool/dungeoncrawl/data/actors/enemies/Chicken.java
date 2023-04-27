@@ -43,9 +43,9 @@ public class Chicken extends Enemy {
     }
 
     @Override
-    public void moveEnemy(int position) {
-        moveFieldChecker(position);
-        makeMove(position);
+    public void moveEnemy() {
+        moveFieldChecker(0);
+        makeMove(0);
     }
 
     @Override

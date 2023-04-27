@@ -38,9 +38,7 @@ public class Spider extends Enemy {
 
 
     @Override
-    public void moveEnemy(int position) {
-        moveFieldChecker(position);
-        makeMove(position);
+    public void moveEnemy() {
     }
 
     @Override
