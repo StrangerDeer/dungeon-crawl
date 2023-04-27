@@ -1,11 +1,8 @@
 package com.codecool.dungeoncrawl.data;
 
 import com.codecool.dungeoncrawl.data.actors.Player;
-import com.codecool.dungeoncrawl.data.actors.enemies.Enemy;
-import com.codecool.dungeoncrawl.data.actors.enemies.Giant;
-import com.codecool.dungeoncrawl.data.actors.enemies.Skeleton;
-import com.codecool.dungeoncrawl.data.actors.enemies.Wizard;
 import com.codecool.dungeoncrawl.data.actors.spells.Spell;
+import com.codecool.dungeoncrawl.data.actors.enemies.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +14,14 @@ public class GameMap {
 
     private Player player;
 
+    private Skeleton skeleton;
+
+    private Giant giant;
+
+    private Wizard wizard;
+
+    private Chicken chicken;
+    
     private final List<Enemy> enemies = new ArrayList<>();
 
     private List<Spell> spells = new ArrayList<>();
@@ -62,6 +67,21 @@ public class GameMap {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public Chicken getChicken() {
+        for (Enemy enemy : enemies) {
+            if (enemy.getTileName().equals("chicken")) {
+                return (Chicken) enemy;
+            }
+        }
+        return null;
+    }
+
+    public Skeleton getSkeleton(){return skeleton;}
+
+    public Giant getGiant() {
+        return giant;
     }
 
     public int getWidth() {

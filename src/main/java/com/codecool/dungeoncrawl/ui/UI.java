@@ -58,6 +58,8 @@ public class UI {
                 enemy.moveEnemy();
             } else if (enemy.getTileName().equals("wizard")) {
                 enemy.moveEnemy();
+            } else if (enemy.getTileName().equals("chicken")) {
+                enemy.moveEnemy();
             }
         }
     }
@@ -92,5 +94,6 @@ public class UI {
         mainStage.setHealthLabelText(logic.getPlayerHealth());
         mainStage.setAttackStrengthLabelText(logic.getPlayerAttackStrength());
         mainStage.setInventoryContentsText(logic.getPlayerItems());
+        mainStage.setEndGameLabelText(Integer.parseInt(logic.getPlayerHealth()), Integer.parseInt(logic.getChickenHealth()));
     }
 }

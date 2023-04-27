@@ -34,6 +34,13 @@ public class GameLogic {
         return Integer.toString(map.getPlayer().getHealth());
     }
 
+    public String getChickenHealth() {
+        if (map.getChicken() == null) {
+            return Integer.toString(0);
+        }
+        return Integer.toString(map.getChicken().getHealth());
+    }
+
     public String getPlayerAttackStrength() {
         return Integer.toString(map.getPlayer().getAttackStrength());
     }

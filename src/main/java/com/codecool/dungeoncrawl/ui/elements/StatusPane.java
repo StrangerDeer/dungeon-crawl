@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontSmoothingType;
 import javafx.scene.text.FontWeight;
 
@@ -26,6 +27,8 @@ public class StatusPane {
     private Label attackStrengthValueLabel;
     private Label inventoryLabel;
     private Label inventoryContents;
+
+    private Label gameEndLabel;
     private final double MAX_FONT_SIZE = 22.0;
 
     public StatusPane() {
@@ -56,6 +59,11 @@ public class StatusPane {
         inventoryContents = new Label();
         inventoryContents.setTextFill(Color.color(0.84, 0.81, 0.76));
         inventoryContents.setFont(Font.font("Cambria", FontWeight.SEMI_BOLD, MAX_FONT_SIZE));
+
+        gameEndLabel = new Label();
+        gameEndLabel.setFont(Font.font("Cambria", FontWeight.BOLD, FontPosture.ITALIC, 40));
+        gameEndLabel.setTextFill(Color.color(1, 1, 0.66));
+        gameEndLabel.setMinHeight(25);
     }
 
     public BorderPane build() {
@@ -72,6 +80,8 @@ public class StatusPane {
         ui.add(inventoryLabel, 0, 4);
         ui.add(inventoryContents,  0, 5);
 
+        ui.add(gameEndLabel, 0, 6);
+
         BorderPane borderPane = new BorderPane();
         borderPane.setRight(ui);
         borderPane.setBackground(new Background(new BackgroundFill(Color.color(0.208, 0.1, 0.16), CornerRadii.EMPTY, Insets.EMPTY)));
@@ -79,13 +89,16 @@ public class StatusPane {
     }
 
     public void setHealthValue(String text) {
-        String hearts = new String(new char[Integer.parseInt(text)]).replace("\0", "♥");
-        healthValueLabel.setText(hearts);
-
+        if (Integer.parseInt(text) > 0) {
+            String hearts = new String(new char[Integer.parseInt(text)]).replace("\0", "♥").replaceAll(".{15}", "$0\n");
+            healthValueLabel.setText(hearts);
+        } else {
+            healthValueLabel.setText("");
+        }
     }
 
     public void setAttackStrengthValue(String text) {
-        String swords = new String(new char[Integer.parseInt(text)]).replace("\0", "\uD83D\uDDE1");
+        String swords = new String(new char[Integer.parseInt(text)]).replace("\0", "\uD83D\uDDE1").replaceAll(".{10}",  "$0\n");;
         attackStrengthValueLabel.setText(swords);
     }
 
@@ -96,5 +109,17 @@ public class StatusPane {
         }
         inventoryContents.setText(itemList.stream()
                 .collect(joining(",\n")));
+    }
+
+    public void setEndGameLabel(int playerHealth, int chickenHealth) {
+        if (playerHealth < 1) {
+            gameEndLabel.setText("Game over!");
+        }
+        if (chickenHealth < 1) {
+            gameEndLabel.setText("✧ Victory! ✧");
+        }
+        if (chickenHealth < 1 && playerHealth < 1) {
+            gameEndLabel.setText("But at what\ncost?");
+        }
     }
 }
