@@ -2,6 +2,8 @@ package com.codecool.dungeoncrawl.data.actors.enemies;
 
 import com.codecool.dungeoncrawl.data.Cell;
 import com.codecool.dungeoncrawl.data.CellType;
+import com.codecool.dungeoncrawl.data.actors.spells.ChickenSpell;
+import com.codecool.dungeoncrawl.data.actors.spells.Spell;
 
 public class Chicken extends Wizard {
 
@@ -16,6 +18,73 @@ public class Chicken extends Wizard {
 
     public Chicken(Cell cell) {
         super(cell);
+    }
+
+    private void attackView(){
+
+        seeDown();
+        seeUp();
+        seeRight();
+        seeLeft();
+
+    }
+
+    private void seeDown(){
+        int view = 1;
+
+        while(getCell().getNeighbor(0,view).getType().equals(CellType.GRASS)){
+            if(checkPlayer(0,view)){
+                ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(0,1),0,1);
+                getCell().addSpell(spell);
+            };
+            view++;
+        }
+
+    }
+
+    private void seeUp(){
+        int view = 1;
+
+        while(getCell().getNeighbor(0,- view).getType().equals(CellType.GRASS)){
+            if(checkPlayer(0, -view)){
+                ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(0, -1),0,-1);
+                getCell().addSpell(spell);
+            };
+            view++;
+        }
+    }
+
+    private void seeRight(){
+        int view = 1;
+
+        while(getCell().getNeighbor(view,0).getType().equals(CellType.GRASS)){
+            if(checkPlayer(view,0)){
+                ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(1,0),1,0);
+                getCell().addSpell(spell);
+            };
+            view++;
+        }
+    }
+
+    private void seeLeft(){
+        int view = 1;
+
+        while(getCell().getNeighbor(- view,0).getType().equals(CellType.GRASS)){
+            if(checkPlayer(- view, 0)){
+                ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(-1, 0),-1,0);
+                getCell().addSpell(spell);
+            };
+            view++;
+        }
+    }
+
+    private boolean checkPlayer(int x, int y){
+        if(getCell().getNeighbor(x,y).getActor() != null &&
+                getCell().getNeighbor(x,y).getActor().getTileName().equals("player")&&
+                (y>1 || y<-1 || x>1 || x< -1)){
+            return true;
+        };
+        return false;
     }
 
 
@@ -48,6 +117,7 @@ public class Chicken extends Wizard {
     public void moveEnemy() {
         moveFieldChecker(0);
         makeMove(0);
+        attackView();
     }
 
     @Override
@@ -55,22 +125,18 @@ public class Chicken extends Wizard {
 
         if(!getCell().getNeighbor(0, position - 1).getType().equals(CellType.GRASS) &&
                 getCell().getNeighbor(position - 1, 0).getType().equals(CellType.GRASS)){
-            System.out.println("left");
             moveUp = false;
             moveLeft = true;
         }else if (!getCell().getNeighbor(position - 1, 0).getType().equals(CellType.GRASS) &&
                 getCell().getNeighbor(0, position + 1).getType().equals(CellType.GRASS)){
-            System.out.println("down");
             moveLeft = false;
             moveDown = true;
         }else if (!getCell().getNeighbor(0, position + 1).getType().equals(CellType.GRASS) &&
                 getCell().getNeighbor(position + 1, 0).getType().equals(CellType.GRASS)){
-            System.out.println("right");
             moveDown = false;
             moveRight = true;
         }else if(!getCell().getNeighbor(position + 1, 0).getType().equals(CellType.GRASS) &&
                 getCell().getNeighbor(0, position - 1).getType().equals(CellType.GRASS)){
-            System.out.println("up");
             moveRight = false;
             moveUp = true;
         }
