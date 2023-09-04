@@ -1,6 +1,20 @@
 
 # Dungeon Crawl
 
+## About the project
+
+This project was a task on OOP module in Codecool. We liked this project, because we love videogames.
+We got a skeleton code, this skeleton code contains the Java Fx featuers, and we added the gameplay, new design.
+Our background story is The Duck wants to save the world from the evil chicken priccess sorcerer and her terrifying minons.
+The gameplay is basic, but it revives the old age videogames.
+You can read belove what were our tasks on that week.
+
+
+## The features implemented by
+
+[rBabett](https://github.com/rBabett)
+[StrangerDeer](https://github.com/StrangerDeer)
+
 ## Story
 
 [Roguelikes](https://en.wikipedia.org/wiki/Roguelike) are one of the oldest
@@ -84,36 +98,3 @@ Create a feature that allows the hero to pick up an item.
     Create maps that have more varied scenery. Take a look at the tile sheet (tiles.png). Get inspired!
     - At least three more tiles are used. These can be more monsters, items, or background. At least one of them must be not purely decorative, but have some effect on gameplay.
 
-11. **OPTIONAL TASK:** Character name\
-    Allow the player to set a name for the character. This name can also function as a cheat code.
-    - There is a `Name` label and text field on the screen.
-    - If the name given is one of the game developers' name, the player can walk through walls.
-
-12. Implement more levels\
-    Add the possibility to add more levels.
-    - There are at least two levels.
-    - There is a square type "stairs down". Entering this square moves the player to a different map.
-
-13. Levels are bigger than the window.\
-    Implement bigger levels than the game window.
-    - Levels are larger than the game window (for example three screens wide and three screens tall).
-    - When the player moves, the player character stays in the center of the view.
-
-## Hints
-- Start with the smaller tasks, and then move into the more difficult ones.
-- Make sure you understand the whole starting code before making any changes.
-
-- Open the project in IntelliJ IDEA. This is a Maven project, so you need to
-  open `pom.xml`. The project uses JavaFX, so use the `javafx` Maven plugin to
-  build and run the program. Build using `mvn javafx:compile`, and run using `mvn javafx:run`.
-- Do not delve into JavaFX technicalities too much, most of the GUI is ready.
-
-## Background materials
-- :book-open: [RogueBasin, a wiki with lots of resources on Roguelike creation](http://roguebasin.com/index.php?title=Articles)
-- :exclamation-circle: [Basics of OOP](pages/oop/basics-of-object-oriented-programming.md)
-
-- :exclamation-circle: [How to design classes](pages/java/how-to-design-classes.md)
-- :book-open: [JavaFX](https://en.wikipedia.org/wiki/JavaFX)
-- :book-open: [JavaFX Tutorial](http://tutorials.jenkov.com/javafx/index.html)
-
-- [1-Bit Pack by Kenney](https://kenney.nl/assets/bit-pack)
