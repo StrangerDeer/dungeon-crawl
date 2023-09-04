@@ -9,11 +9,16 @@ Our background story is The Duck wants to save the world from the evil chicken p
 The gameplay is basic, but it revives the old age videogames.
 You can read belove what were our tasks on that week.
 
+## How can you run?
+
+1. gitclone
+2. run
+
 
 ## The features implemented by
 
-[rBabett](https://github.com/rBabett)
-[StrangerDeer](https://github.com/StrangerDeer)
+- [rBabett](https://github.com/rBabett)
+- [StrangerDeer](https://github.com/StrangerDeer)
 
 ## Story
 
