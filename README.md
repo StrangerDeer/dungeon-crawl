@@ -56,10 +56,10 @@ When you first run the application, you will be met with the screen below.
 You control the duck on the left,
 <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/ca455b1f-d25e-42d7-ba35-3d6df4bd9eef"/>
 the main character with the arrow or WASD keys. Whenever you take a step, so do the enemies. Your goal is to outsmart them. There are various items scattered around the map which will help you in your journey:<br>
-* Red apple <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/3c8fa21e-e282-432e-8b43-6d82945daae2"/> - this will give you more Health<br>
-* Cheesy cheese <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/70c8ccd8-2e4d-487c-a748-c1ff07e8ea05"/> - this will provide a huge Health buff<br>
-* Longsword <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/0367c050-73c2-410f-a6bd-e068f9cb9d03"/> - this will give you more Strength<br>
-* Uzi <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/d284acd6-3aec-4038-a726-70484f3100a9"/> - this will provide a huge Strength buff<br>
+➤ Red apple <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/3c8fa21e-e282-432e-8b43-6d82945daae2"/> - this will give you more Health<br>
+➤ Cheesy cheese <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/70c8ccd8-2e4d-487c-a748-c1ff07e8ea05"/> - this will provide a huge Health buff<br>
+➤ Longsword <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/0367c050-73c2-410f-a6bd-e068f9cb9d03"/> - this will give you more Strength<br>
+➤ Uzi <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/d284acd6-3aec-4038-a726-70484f3100a9"/> - this will provide a huge Strength buff<br>
 Collecting these items by walking on top of them is trivial to achieve victory. Victory is achieved when you defeat the evil chicken princess,
 <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/b7c90e13-7e59-413e-94d7-2d95528c491b"/>
 who lives on a small island behind a door
@@ -67,11 +67,11 @@ who lives on a small island behind a door
 which can be opened by a key.
 <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/499d0ddb-a710-4d20-a90e-0e21ef9abc1d"/>
 But to obtain the key and reach the door, first, you will have to defeat many enemies by walking into them:<br>
-* Spider <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/7065589a-e1f3-4d8b-9266-c206f83499a4"/> - this enemy doesn't move and won't fight back when you attack it, and it has the lowest Health<br>
-* Skeleton <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/c130e01d-2d67-4708-9bae-50aea93039e8"/> - this enemy moves from left to right and has pretty low Health and Strength<br>
-* Golem <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/b0be0df0-ea3b-4332-9e04-ac1f85eae5c6"/> - this enemy moves up and down and has a significant amount of Health and Strength<br>
-* Wizard <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/77914951-507e-4c66-8032-0b207f69987f"/> - this enemy moves in a circular pattern inside a room, and while it doesn't have much Health, it can cast magical projectiles which can make it difficult to defeat it<br>
-* Chicken <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/69f99230-3b43-431f-b768-97538a97eca2"/> - much like the wizard, however, her magical projectiles explode upon impact, shattering the ground! She also has a lot of Health, since she is the boss you have to defeat.<br>
+➤ Spider <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/7065589a-e1f3-4d8b-9266-c206f83499a4"/> - this enemy doesn't move and won't fight back when you attack it, and it has the lowest Health<br>
+➤ Skeleton <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/c130e01d-2d67-4708-9bae-50aea93039e8"/> - this enemy moves from left to right and has pretty low Health and Strength<br>
+➤ Golem <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/b0be0df0-ea3b-4332-9e04-ac1f85eae5c6"/> - this enemy moves up and down and has a significant amount of Health and Strength<br>
+➤ Wizard <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/77914951-507e-4c66-8032-0b207f69987f"/> - this enemy moves in a circular pattern inside a room, and while it doesn't have much Health, it can cast magical projectiles which can make it difficult to defeat it<br>
+➤ Chicken <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/69f99230-3b43-431f-b768-97538a97eca2"/> - much like the wizard, however, her magical projectiles explode upon impact, shattering the ground! She also has a lot of Health, since she is the boss you have to defeat.<br>
 Depending on how well you did, the panel on the right will display either
 <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/55ef8345-d3a5-4ef8-91cf-63af522243cd"/>, or
 <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/68b35a67-c172-42fe-b970-cbf79a1d0245"/>
