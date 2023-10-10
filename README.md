@@ -54,7 +54,7 @@ When you first run the application, you will be met with the screen below.
 
 </details>
 You control the duck on the left,
-<img src="![image](https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/ca455b1f-d25e-42d7-ba35-3d6df4bd9eef"/>
+<img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/ca455b1f-d25e-42d7-ba35-3d6df4bd9eef"/>
 the main character. Whenever you take a step, so do the enemies. Your goal is to outsmart them. There are various items scattered around the map which will help you in your journey:<br>
 * Red apple <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/3c8fa21e-e282-432e-8b43-6d82945daae2"/> - this will give you more Health<br>
 * Cheesy cheese <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/70c8ccd8-2e4d-487c-a748-c1ff07e8ea05"/> - this will provide a huge Health buff<br>
