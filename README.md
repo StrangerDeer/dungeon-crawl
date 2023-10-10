@@ -68,11 +68,11 @@ who lives on a small island behind a door
 which can be opened by a key.
 <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/499d0ddb-a710-4d20-a90e-0e21ef9abc1d"/>
 But to obtain the key and reach the door, first, you will have to defeat many enemies:<br>
-* Spides <img src=""/> - this enemy doesn't move and won't fight back when you attack it, and it has the lowest Health<br>
-* Skeleton <img src=""/> - this enemy moves from left to right and has pretty low Health and Strength<br>
-* Golem <img src=""/> - this enemy moves up and down and has a significant amount of Health and Strength<br>
-* Wizard <img src=""/> - this enemy moves in a circular pattern inside a room, and while it doesn't have much Health, it can cast magical projectiles which can make it difficult to defeat it<br>
-* Chicken <img src=""/> - much like the wizard, however, her magical projectiles explode upon impact, shattering the ground! She also has a lot of Health, since she is the boss you have to defeat.<br>
+* Spider <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/7065589a-e1f3-4d8b-9266-c206f83499a4"/> - this enemy doesn't move and won't fight back when you attack it, and it has the lowest Health<br>
+* Skeleton <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/c130e01d-2d67-4708-9bae-50aea93039e8"/> - this enemy moves from left to right and has pretty low Health and Strength<br>
+* Golem <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/b0be0df0-ea3b-4332-9e04-ac1f85eae5c6"/> - this enemy moves up and down and has a significant amount of Health and Strength<br>
+* Wizard <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/77914951-507e-4c66-8032-0b207f69987f"/> - this enemy moves in a circular pattern inside a room, and while it doesn't have much Health, it can cast magical projectiles which can make it difficult to defeat it<br>
+* Chicken <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/69f99230-3b43-431f-b768-97538a97eca2"/> - much like the wizard, however, her magical projectiles explode upon impact, shattering the ground! She also has a lot of Health, since she is the boss you have to defeat.<br>
 Depending on how well you did, the panel on the right will display either
 <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/55ef8345-d3a5-4ef8-91cf-63af522243cd"/>, or
 <img src="https://github.com/StrangerDeer/dungeon-crawl/assets/113454591/68b35a67-c172-42fe-b970-cbf79a1d0245"/>
