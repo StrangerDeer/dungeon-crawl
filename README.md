@@ -49,7 +49,7 @@ For the backend:
   If you have IntelJ, you can run the application from the IDE as well.
 
   **If you notice something wrong, please report it.**
-  Email - makelnotw69@gmail.com
+   - makelnotw69@gmail.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
