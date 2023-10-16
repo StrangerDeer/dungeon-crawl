@@ -43,16 +43,14 @@ For the backend:
    ```sh
    git clone https://github.com/StrangerDeer/dungeon-crawl.git
    ```
-2. 
-   ```sh
-   Run Duckie's Adventure.exe
-   ```
+2. Run Duckie's Adventure.exe
+  
 
   If you have IntelJ, you can run the application from the IDE as well.
 
-  ```sh
-    If you notice something wrong, please report it.
-  ```
+  **If you notice something wrong, please report it.**
+  Email - makelnotw69@gmail.com
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
