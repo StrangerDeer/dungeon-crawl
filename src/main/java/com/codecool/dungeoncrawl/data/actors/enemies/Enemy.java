@@ -11,6 +11,12 @@ public abstract class Enemy extends Actor {
     protected int health;
     protected int attack;
     protected CellType floorType;
+    protected boolean moveUp;
+    protected boolean moveLeft;
+    protected boolean moveDown;
+    protected boolean moveRight;
+
+    private int position = 0;
     public Enemy(Cell cell, String name, int health, int attack, CellType floorType) {
 
         super(cell);
@@ -19,9 +25,27 @@ public abstract class Enemy extends Actor {
         this.attack = attack;
         this.floorType = floorType;
     }
-    public abstract void moveEnemy();
+    public void moveEnemy(){
+        moveFieldChecker(0, floorType);
+        makeMove(0);
+        attackView();
+    };
     protected abstract void moveFieldChecker(int position, CellType floorType);
-    protected abstract void makeMove(int position);
+    protected void makeMove(int position){
+        if(moveRight){
+            position++;
+            move(position,0);
+        }else if (moveLeft){
+            position--;
+            move(position, 0);
+        }else if(moveUp){
+            position--;
+            move(0, position);
+        } else if (moveDown) {
+            position++;
+            move(0, position);
+        }
+    };
 
     protected void castSpell(int x, int y){};
 

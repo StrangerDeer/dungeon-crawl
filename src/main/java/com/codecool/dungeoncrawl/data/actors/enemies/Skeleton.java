@@ -23,12 +23,6 @@ public class Skeleton extends Enemy {
     }
 
     @Override
-    public void moveEnemy() {
-        moveFieldChecker(position, typeOfFloor);
-        makeMove(position);
-    }
-
-    @Override
     protected void moveFieldChecker(int position, CellType floorType){
         if(!getCell().getNeighbor(position + 1, 0).getType().equals(floorType)){
             this.moveRight = false;
@@ -38,7 +32,6 @@ public class Skeleton extends Enemy {
             this.moveLeft = false;
         }
     }
-
     @Override
     protected void makeMove(int position) {
         if(moveRight){

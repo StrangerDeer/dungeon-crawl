@@ -12,7 +12,6 @@ public class Giant extends Enemy {
 
     private static final CellType ENEMY_FLOOR_TYPE = CellType.FLOOR;
 
-    private int position = 0;
     private boolean moveUp = true;
     private boolean moveDown;
 
@@ -24,20 +23,14 @@ public class Giant extends Enemy {
     }
 
     @Override
-    public void moveEnemy() {
-
-        moveFieldChecker(position, floorTypeforMove);
-        makeMove(position);
-    }
-    @Override
     protected void moveFieldChecker(int position, CellType floorType) {
 
         if(!getCell().getNeighbor(0, position + 1).getType().equals(floorType)){
-            this.moveUp = false;
-            this.moveDown = true;
+            moveUp = false;
+            moveDown = true;
         }else if (!getCell().getNeighbor(0, position - 1).getType().equals(floorType)){
-            this.moveUp = true;
-            this.moveDown = false;
+            moveUp = true;
+            moveDown = false;
         }
     }
 

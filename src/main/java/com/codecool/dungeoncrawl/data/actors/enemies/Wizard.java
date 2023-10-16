@@ -34,15 +34,6 @@ public class Wizard extends Enemy {
     }
 
     @Override
-    public void moveEnemy() {
-
-        moveFieldChecker(position, typeOfFloor);
-        makeMove(position);
-        attackView();
-
-    }
-
-    @Override
     protected void moveFieldChecker(int position, CellType floorType) {
         if(!cell.getNeighbor(0, position - 1).getType().equals(floorType) &&
                 cell.getNeighbor(position - 1, 0).getType().equals(floorType)){

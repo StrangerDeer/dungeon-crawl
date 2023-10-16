@@ -21,13 +21,6 @@ public class Chicken extends Wizard {
         ChickenSpell spell = new ChickenSpell(getCell().getNeighbor(x,y),x,y);
         getCell().addSpell(spell);
     }
-
-    @Override
-    public void moveEnemy() {
-        moveFieldChecker(0, ENEMY_FLOOR_TYPE);
-        makeMove(0);
-        attackView();
-    }
     @Override
     protected void makeMove(int position) {
         if(moveRight){
