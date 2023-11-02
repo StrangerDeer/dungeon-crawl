@@ -14,6 +14,9 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+      </ul>
+      <ul>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -38,6 +41,10 @@ For the backend:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Getting Started
+### Prerequisites
+To run the project, you will need:
+- Maven: Version 3.8.1
+- SDK: Oracle OpenJDK version 17.0.6
 ### Installation
 1. Clone the repo
    ```sh
@@ -46,7 +53,7 @@ For the backend:
 2. Run Duckie's Adventure.exe
   
 
-  If you have IntelJ, you can run the application from the IDE as well.
+  If you have IntelliJ, you can run the application from the IDE as well.
 
   **If you notice something wrong, please report it.**
    - makelnotw69@gmail.com
